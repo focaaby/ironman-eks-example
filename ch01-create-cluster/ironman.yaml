@@ -1,0 +1,28 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: ironman
+  version: "1.27"
+  region: eu-west-1
+
+managedNodeGroups:
+  - name: "ng1-public-ssh"
+    desiredCapacity: 2
+    ssh:
+      # Enable ssh access (via the admin container)
+      allow: true
+      publicKeyName: "demo"
+    iam:
+      withAddonPolicies:
+        ebs: true
+        fsx: true
+        efs: true
+        awsLoadBalancerController: true
+        autoScaler: true
+
+iam:
+  withOIDC: true
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
