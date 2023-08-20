@@ -124,7 +124,7 @@ $ diff managed-labels.json self-managed-labels.json --context
   }
 ```
 
-##
+## 建立 Kubernetes Deployment object 並終止其中一 Managed 節點
 
 1. 透過 kubectl label 過濾 managed node group `demo-ng`。
 ```
@@ -166,7 +166,8 @@ spec:
         ports:
         - containerPort: 80
 ```
-部署後，並確認 Nginx 測試 Pod 執行於該 managed 節點。
+
+3. 部署後，並確認 Nginx 測試 Pod 執行於該 managed 節點。
 ```
 $ kubectl apply -f ./nginx-normal.yaml
 namespace/demo created
@@ -180,7 +181,8 @@ Non-terminated Pods:          (5 in total)
   demo                        nginx-demo-deployment-7d4795b8bb-trfb6    0 (0%)        0 (0%)      0 (0%)           0 (0%)         3m52s
   demo                        nginx-demo-deployment-7d4795b8bb-v77r9    0 (0%)        0 (0%)      0 (0%)           0 (0%)         3m52s
 ```
-為確保終止 node `ip-192-168-95-87.eu-west-1.compute.internal`，透過以下 AWS CLI `terminate-instance-in-auto-scaling-group` 終止 EKS 工作節點同時進行 scale-in 至 0。
+
+4. 為確保終止 node `ip-192-168-95-87.eu-west-1.compute.internal`，透過以下 AWS CLI `terminate-instance-in-auto-scaling-group` 終止 EKS 工作節點同時進行 scale-in 至 0。
 ```
 $ kubectl describe no ip-192-168-95-87.eu-west-1.compute.internal | grep "Provider"
 ProviderID:                   aws:///eu-west-1a/i-06da872dc9dbaa06f
