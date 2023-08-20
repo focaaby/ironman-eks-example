@@ -39,7 +39,7 @@ Environment='KUBELET_ARGS=--node-ip=192.168.30.190 --pod-infra-container-image=6
 Environment='KUBELET_EXTRA_ARGS=--node-labels=eks.amazonaws.com/sourceLaunchTemplateVersion=1,alpha.eksctl.io/cluster-name=ironman,alpha.eksctl
 ```
 ## containerd config
- 
+
 ```
 [ec2-user@ip-192-168-30-190 ~]$ cat /etc/containerd/config.toml
 version = 2

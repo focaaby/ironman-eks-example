@@ -64,14 +64,14 @@ $ kubectl -n fargate-demo get po nginx -o yaml > fargate-nginx.yaml
 ```
 $ diff fargate-nginx.yaml default-nginx.yaml
 4,7c4
-<   annotations: 
+<   annotations:
 <     CapacityProvisioned: 0.25vCPU 0.5GB
 <     Logging: 'LoggingDisabled: LOGGING_CONFIGMAP_NOT_FOUND'
 <   creationTimestamp: "2023-06-17T14:55:20Z"
 ---
 >   creationTimestamp: "2023-06-17T14:55:25Z"
 9d5
-<     eks.amazonaws.com/fargate-profile: demo-profile 
+<     eks.amazonaws.com/fargate-profile: demo-profile
 12,14c8,10
 <   namespace: fargate-demo
 <   resourceVersion: "4443117"
@@ -85,7 +85,7 @@ $ diff fargate-nginx.yaml default-nginx.yaml
 ---
 >       name: kube-api-access-pvvqv
 29c25
-<   nodeName: fargate-ip-192-168-140-92.eu-west-1.compute.internal 
+<   nodeName: fargate-ip-192-168-140-92.eu-west-1.compute.internal
 ---
 >   nodeName: ip-192-168-59-127.eu-west-1.compute.internal
 31,32c27

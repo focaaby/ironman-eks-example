@@ -65,7 +65,7 @@ $ eksctl create iamserviceaccount \
 $ kubectl run aws-cli --image="amazon/aws-cli" --command sleep infinity --overrides='{ "spec": { "serviceAccountName": "ironman-s3-sa" } }'
 ```
 
-## Pod aws-cli 
+## Pod aws-cli
 ```
 $ kubectl describe po aws-cli
 Name:             aws-cli

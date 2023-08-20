@@ -73,8 +73,8 @@ export class CdkStack extends Stack {
 
     const kubectl = new KubectlV26Layer(this, 'KubectlLayer');
     const cluster = new eks.Cluster(this, 'HelloEKS', {
-      version: eks.KubernetesVersion.V1_26, 
-      kubectlLayer: new KubectlV26Layer(this, 'kubectl'), 
+      version: eks.KubernetesVersion.V1_26,
+      kubectlLayer: new KubectlV26Layer(this, 'kubectl'),
       defaultCapacity: 2,
       defaultCapacityInstance: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.MEDIUM),
     });
