@@ -1,0 +1,219 @@
+[
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "5d9dc27f-00ad-4f22-9fdb-ff127ba18071",
+            "stage": "ResponseComplete",
+            "requestURI": "/api/v1/namespaces/kube-system/configmaps/aws-auth?timeout=19s",
+            "verb": "patch",
+            "user": {
+                "username": "eks:node-manager",
+                "uid": "aws-iam-authenticator:355354510478:AROAVFPGHQSHFLTEP6VGC",
+                "groups": [
+                    "system:authenticated"
+                ],
+                "extra": {
+                    "accessKeyId": [
+                        "ASIAVFPGHQSHCCBHI3VA"
+                    ],
+                    "arn": [
+                        "arn:aws:sts::355354510478:assumed-role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT/1688597429879774207"
+                    ],
+                    "canonicalArn": [
+                        "arn:aws:iam::355354510478:role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT"
+                    ],
+                    "principalId": [
+                        "AROAVFPGHQSHFLTEP6VGC"
+                    ],
+                    "sessionName": [
+                        "1688597429879774207"
+                    ]
+                }
+            },
+            "sourceIPs": [
+                "3.249.55.209"
+            ],
+            "userAgent": "vpcLambda/v0.0.0 (linux/amd64) kubernetes/$Format",
+            "objectRef": {
+                "resource": "configmaps",
+                "namespace": "kube-system",
+                "name": "aws-auth",
+                "apiVersion": "v1"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "code": 200
+            },
+            "requestObject": {
+                "data": {
+                    "mapRoles": "- groups:\n  - system:bootstrappers\n  - system:nodes\n  - system:node-proxier\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-fargate-FargatePodExecutionRole-ENO8G7C1URR3\n  username: system:node:{{SessionName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-ng1-publ-NodeInstanceRole-BGQ6YHZUODJD\n  username: system:node:{{EC2PrivateDNSName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-demo-ng-NodeInstanceRole-14QKKGSEKOK77\n  username: system:node:{{EC2PrivateDNSName}}\n"
+                }
+            },
+            "responseObject": {
+                "kind": "ConfigMap",
+                "apiVersion": "v1",
+                "metadata": {
+                    "name": "aws-auth",
+                    "namespace": "kube-system",
+                    "uid": "552157b3-5a87-4c46-b808-23eab6bc3742",
+                    "resourceVersion": "9455949",
+                    "creationTimestamp": "2023-05-28T15:52:13Z",
+                    "managedFields": [
+                        {
+                            "manager": "vpcLambda",
+                            "operation": "Update",
+                            "apiVersion": "v1",
+                            "time": "2023-07-05T22:50:29Z",
+                            "fieldsType": "FieldsV1",
+                            "fieldsV1": {
+                                "f:data": {
+                                    ".": {},
+                                    "f:mapRoles": {}
+                                }
+                            }
+                        }
+                    ]
+                },
+                "data": {
+                    "mapRoles": "- groups:\n  - system:bootstrappers\n  - system:nodes\n  - system:node-proxier\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-fargate-FargatePodExecutionRole-ENO8G7C1URR3\n  username: system:node:{{SessionName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-ng1-publ-NodeInstanceRole-BGQ6YHZUODJD\n  username: system:node:{{EC2PrivateDNSName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-demo-ng-NodeInstanceRole-14QKKGSEKOK77\n  username: system:node:{{EC2PrivateDNSName}}\n"
+                }
+            },
+            "requestReceivedTimestamp": "2023-07-05T22:50:29.920048Z",
+            "stageTimestamp": "2023-07-05T22:50:29.928461Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": "RBAC: allowed by RoleBinding \"eks:node-manager/kube-system\" of Role \"eks:node-manager\" to User \"eks:node-manager\""
+            }
+        }
+    },
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "acfe87cc-b31e-49d8-83b1-26fbdc08c639",
+            "stage": "ResponseComplete",
+            "requestURI": "/api/v1/namespaces/kube-system/configmaps/aws-auth",
+            "verb": "update",
+            "user": {
+                "username": "kubernetes-admin",
+                "uid": "aws-iam-authenticator:111111111111:AIDAYFMQSNSE7DQH72FL7",
+                "groups": [
+                    "system:masters",
+                    "system:authenticated"
+                ],
+                "extra": {
+                    "accessKeyId": [
+                        "AKIAYFMQSNSE5H5ZTJDE"
+                    ],
+                    "arn": [
+                        "arn:aws:iam::111111111111:user/cli"
+                    ],
+                    "canonicalArn": [
+                        "arn:aws:iam::111111111111:user/cli"
+                    ],
+                    "principalId": [
+                        "AIDAYFMQSNSE7DQH72FL7"
+                    ],
+                    "sessionName": [
+                        ""
+                    ]
+                }
+            },
+            "sourceIPs": [
+                "34.243.235.127"
+            ],
+            "userAgent": "eksctl/v0.0.0 (linux/amd64) kubernetes/$Format",
+            "objectRef": {
+                "resource": "configmaps",
+                "namespace": "kube-system",
+                "name": "aws-auth",
+                "uid": "552157b3-5a87-4c46-b808-23eab6bc3742",
+                "apiVersion": "v1",
+                "resourceVersion": "9455949"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "code": 200
+            },
+            "requestObject": {
+                "kind": "ConfigMap",
+                "apiVersion": "v1",
+                "metadata": {
+                    "name": "aws-auth",
+                    "namespace": "kube-system",
+                    "uid": "552157b3-5a87-4c46-b808-23eab6bc3742",
+                    "resourceVersion": "9455949",
+                    "creationTimestamp": "2023-05-28T15:52:13Z",
+                    "managedFields": [
+                        {
+                            "manager": "vpcLambda",
+                            "operation": "Update",
+                            "apiVersion": "v1",
+                            "time": "2023-07-05T22:50:29Z",
+                            "fieldsType": "FieldsV1",
+                            "fieldsV1": {
+                                "f:data": {
+                                    ".": {},
+                                    "f:mapRoles": {}
+                                }
+                            }
+                        }
+                    ]
+                },
+                "data": {
+                    "mapRoles": "- groups:\n  - system:bootstrappers\n  - system:nodes\n  - system:node-proxier\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-fargate-FargatePodExecutionRole-ENO8G7C1URR3\n  username: system:node:{{SessionName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-ng1-publ-NodeInstanceRole-BGQ6YHZUODJD\n  username: system:node:{{EC2PrivateDNSName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-demo-ng-NodeInstanceRole-14QKKGSEKOK77\n  username: system:node:{{EC2PrivateDNSName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-demo-sel-NodeInstanceRole-7P8JQI5W2VFS\n  username: system:node:{{EC2PrivateDNSName}}\n",
+                    "mapUsers": "[]\n"
+                }
+            },
+            "responseObject": {
+                "kind": "ConfigMap",
+                "apiVersion": "v1",
+                "metadata": {
+                    "name": "aws-auth",
+                    "namespace": "kube-system",
+                    "uid": "552157b3-5a87-4c46-b808-23eab6bc3742",
+                    "resourceVersion": "9456873",
+                    "creationTimestamp": "2023-05-28T15:52:13Z",
+                    "managedFields": [
+                        {
+                            "manager": "vpcLambda",
+                            "operation": "Update",
+                            "apiVersion": "v1",
+                            "time": "2023-07-05T22:50:29Z",
+                            "fieldsType": "FieldsV1",
+                            "fieldsV1": {
+                                "f:data": {}
+                            }
+                        },
+                        {
+                            "manager": "eksctl",
+                            "operation": "Update",
+                            "apiVersion": "v1",
+                            "time": "2023-07-05T22:54:54Z",
+                            "fieldsType": "FieldsV1",
+                            "fieldsV1": {
+                                "f:data": {
+                                    "f:mapRoles": {},
+                                    "f:mapUsers": {}
+                                }
+                            }
+                        }
+                    ]
+                },
+                "data": {
+                    "mapRoles": "- groups:\n  - system:bootstrappers\n  - system:nodes\n  - system:node-proxier\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-fargate-FargatePodExecutionRole-ENO8G7C1URR3\n  username: system:node:{{SessionName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-ng1-publ-NodeInstanceRole-BGQ6YHZUODJD\n  username: system:node:{{EC2PrivateDNSName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-demo-ng-NodeInstanceRole-14QKKGSEKOK77\n  username: system:node:{{EC2PrivateDNSName}}\n- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::111111111111:role/eksctl-ironman-nodegroup-demo-sel-NodeInstanceRole-7P8JQI5W2VFS\n  username: system:node:{{EC2PrivateDNSName}}\n",
+                    "mapUsers": "[]\n"
+                }
+            },
+            "requestReceivedTimestamp": "2023-07-05T22:54:54.099237Z",
+            "stageTimestamp": "2023-07-05T22:54:54.109752Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": ""
+            }
+        }
+    }
+]

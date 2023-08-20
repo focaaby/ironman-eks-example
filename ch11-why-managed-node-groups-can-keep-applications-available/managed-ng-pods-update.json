@@ -1,0 +1,221 @@
+[
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "a7ba2bc3-37ae-4452-b0e8-6896a1ab7296",
+            "stage": "ResponseComplete",
+            "requestURI": "/api/v1/namespaces/demo/pods/nginx-demo-deployment-7d4795b8bb-klqtk/eviction?timeout=19s",
+            "verb": "create",
+            "user": {
+                "username": "eks:node-manager",
+                "uid": "aws-iam-authenticator:355354510478:AROAVFPGHQSHFLTEP6VGC",
+                "groups": [
+                    "system:authenticated"
+                ],
+                "extra": {
+                    "accessKeyId": [
+                        "ASIAVFPGHQSHEVL2FFNF"
+                    ],
+                    "arn": [
+                        "arn:aws:sts::355354510478:assumed-role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT/1688914695173088452"
+                    ],
+                    "canonicalArn": [
+                        "arn:aws:iam::355354510478:role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT"
+                    ],
+                    "principalId": [
+                        "AROAVFPGHQSHFLTEP6VGC"
+                    ],
+                    "sessionName": [
+                        "1688914695173088452"
+                    ]
+                }
+            },
+            "sourceIPs": [
+                "3.252.228.42"
+            ],
+            "userAgent": "vpcLambda/v0.0.0 (linux/amd64) kubernetes/$Format",
+            "objectRef": {
+                "resource": "pods",
+                "namespace": "demo",
+                "name": "nginx-demo-deployment-7d4795b8bb-klqtk",
+                "apiVersion": "v1",
+                "subresource": "eviction"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestObject": {
+                "kind": "Eviction",
+                "apiVersion": "policy/v1beta1",
+                "metadata": {
+                    "name": "nginx-demo-deployment-7d4795b8bb-klqtk",
+                    "namespace": "demo",
+                    "creationTimestamp": null
+                }
+            },
+            "responseObject": {
+                "kind": "Status",
+                "apiVersion": "v1",
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestReceivedTimestamp": "2023-07-09T14:58:15.223678Z",
+            "stageTimestamp": "2023-07-09T14:58:15.247508Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"eks:node-manager\" of ClusterRole \"eks:node-manager\" to User \"eks:node-manager\""
+            }
+        }
+    },
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "6612424a-a1c3-4b9d-9430-49bd439729eb",
+            "stage": "ResponseComplete",
+            "requestURI": "/api/v1/namespaces/demo/pods/nginx-demo-deployment-7d4795b8bb-trfb6/eviction?timeout=19s",
+            "verb": "create",
+            "user": {
+                "username": "eks:node-manager",
+                "uid": "aws-iam-authenticator:355354510478:AROAVFPGHQSHFLTEP6VGC",
+                "groups": [
+                    "system:authenticated"
+                ],
+                "extra": {
+                    "accessKeyId": [
+                        "ASIAVFPGHQSHMB27S2XO"
+                    ],
+                    "arn": [
+                        "arn:aws:sts::355354510478:assumed-role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT/1688914695338539573"
+                    ],
+                    "canonicalArn": [
+                        "arn:aws:iam::355354510478:role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT"
+                    ],
+                    "principalId": [
+                        "AROAVFPGHQSHFLTEP6VGC"
+                    ],
+                    "sessionName": [
+                        "1688914695338539573"
+                    ]
+                }
+            },
+            "sourceIPs": [
+                "3.252.228.42"
+            ],
+            "userAgent": "vpcLambda/v0.0.0 (linux/amd64) kubernetes/$Format",
+            "objectRef": {
+                "resource": "pods",
+                "namespace": "demo",
+                "name": "nginx-demo-deployment-7d4795b8bb-trfb6",
+                "apiVersion": "v1",
+                "subresource": "eviction"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestObject": {
+                "kind": "Eviction",
+                "apiVersion": "policy/v1beta1",
+                "metadata": {
+                    "name": "nginx-demo-deployment-7d4795b8bb-trfb6",
+                    "namespace": "demo",
+                    "creationTimestamp": null
+                }
+            },
+            "responseObject": {
+                "kind": "Status",
+                "apiVersion": "v1",
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestReceivedTimestamp": "2023-07-09T14:58:15.351143Z",
+            "stageTimestamp": "2023-07-09T14:58:15.376707Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"eks:node-manager\" of ClusterRole \"eks:node-manager\" to User \"eks:node-manager\""
+            }
+        }
+    },
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "6314f35e-b4ab-43d5-824f-560cf6340507",
+            "stage": "ResponseComplete",
+            "requestURI": "/api/v1/namespaces/demo/pods/nginx-demo-deployment-7d4795b8bb-v77r9/eviction?timeout=19s",
+            "verb": "create",
+            "user": {
+                "username": "eks:node-manager",
+                "uid": "aws-iam-authenticator:355354510478:AROAVFPGHQSHFLTEP6VGC",
+                "groups": [
+                    "system:authenticated"
+                ],
+                "extra": {
+                    "accessKeyId": [
+                        "ASIAVFPGHQSHIRLW35FF"
+                    ],
+                    "arn": [
+                        "arn:aws:sts::355354510478:assumed-role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT/1688914695450892810"
+                    ],
+                    "canonicalArn": [
+                        "arn:aws:iam::355354510478:role/AWSWesleyClusterManagerLambda-NodeManagerRole-LERKXTLS4KTT"
+                    ],
+                    "principalId": [
+                        "AROAVFPGHQSHFLTEP6VGC"
+                    ],
+                    "sessionName": [
+                        "1688914695450892810"
+                    ]
+                }
+            },
+            "sourceIPs": [
+                "3.252.228.42"
+            ],
+            "userAgent": "vpcLambda/v0.0.0 (linux/amd64) kubernetes/$Format",
+            "objectRef": {
+                "resource": "pods",
+                "namespace": "demo",
+                "name": "nginx-demo-deployment-7d4795b8bb-v77r9",
+                "apiVersion": "v1",
+                "subresource": "eviction"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestObject": {
+                "kind": "Eviction",
+                "apiVersion": "policy/v1beta1",
+                "metadata": {
+                    "name": "nginx-demo-deployment-7d4795b8bb-v77r9",
+                    "namespace": "demo",
+                    "creationTimestamp": null
+                }
+            },
+            "responseObject": {
+                "kind": "Status",
+                "apiVersion": "v1",
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestReceivedTimestamp": "2023-07-09T14:58:15.462719Z",
+            "stageTimestamp": "2023-07-09T14:58:15.485556Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"eks:node-manager\" of ClusterRole \"eks:node-manager\" to User \"eks:node-manager\""
+            }
+        }
+    }
+]
