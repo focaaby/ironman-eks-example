@@ -43,15 +43,15 @@ spec:
   restartPolicy: Always
 ```
 
-2. 部署兩個 `networkstatic/iperf3` Pod，一個作為 server side，另一個則作為 client side。
+2. 使用 image `networkstatic/iperf3` 部署 server-side 及 client-side。
 ```
-$ kubectl apply -f ./iperf3.yaml
+$ kubectl apply -f ./iperf3-demo.yaml
 namespace/iperf3 created
 pod/iperf3-client created
 pod/iperf3-server created
 ```
 
-3. 檢視 pod 啟用於相同的 Node 上，instance id：`i-0ea90c13bca800dc5`。
+1. 檢視 pod 啟用於相同的節點上，instance id：`i-0ea90c13bca800dc5`。
 ```
 $ kubectl -n iperf3 get po -o wide
 NAME            READY   STATUS    RESTARTS   AGE     IP               NODE                                                NOMINATED NODE   READINESS GATES

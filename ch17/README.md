@@ -1,6 +1,6 @@
 ## 建置環境
 
-1. 當前 VPC CNI plugin 版本 `v1.12.6`。
+1. 檢視 VPC CNI plugin 版本。當前測試版本為： `v1.12.6`。
 
 ```
 $ kubectl describe daemonset aws-node --namespace kube-system | grep Image | cut -d "/" -f 2
@@ -8,42 +8,40 @@ amazon-k8s-cni-init:v1.12.6-eksbuild.2
 amazon-k8s-cni:v1.12.6-eksbuild.2
 ```
 
-2. 查看叢集所使用的 [EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html)[3]。
+2. 查看叢集所使用的 [EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html)[1]。
 
 ```
 $ aws eks describe-cluster --name ironman --query cluster.roleArn --output text
 arn:aws:iam::111111111111:role/eksctl-ironman-cluster-ServiceRole-1KZA9GL6BA7OQ
 ```
 
-4. 將 Policy `AmazonEKSVPCResourceController` 關聯至 EKS 叢集 IAM role。
+3. 將 Policy `AmazonEKSVPCResourceController` 關聯至 EKS 叢集 IAM role。
 
 ```
 $ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSVPCResourceController --role-name eksctl-ironman-cluster-ServiceRole-1KZA9GL6BA7OQ
 ```
 
-5. 設定 `aws-node` Pod 環境變數 `ENABLE_POD_ENI` 為 `true`。
+4. 設定 `DaemonSet` `aws-node`環境變數 `ENABLE_POD_ENI` 為 `true`。
 
 ```
 $ kubectl set env daemonset aws-node -n kube-system ENABLE_POD_ENI=true
 daemonset.apps/aws-node env updated
 ```
 
-6. 確認 `aws-node` Pod 更新。更新後，可以觀察到節點更新 label `vpc.amazonaws.com/has-trunk-attached`。
+5. 設定環境變數將會導致 Pod 重啟。等候數秒後，可以觀察到節點更新 label `vpc.amazonaws.com/has-trunk-attached`。
 
 ```
 $ kubectl -n kube-system get po | grep "aws-node"
 aws-node-2frfg             1/1     Running   0          41s
 aws-node-x769d             1/1     Running   0          38s
-```
 
-```
 $ kubectl get nodes -l vpc.amazonaws.com/has-trunk-attached=true
 NAME                                                STATUS   ROLES    AGE   VERSION
 ip-192-168-18-171.eu-west-1.compute.internal   Ready    <none>   25h   v1.27.3-eks-a5565ad
 ip-192-168-34-221.eu-west-1.compute.internal   Ready    <none>   7d    v1.27.3-eks-a5565ad
 ```
 
-7. 建立以下 `sg-policy-demo.yaml`，以下使用 `aws-cli` image 作為測試 Pod。
+6. 建立以下 `sg-policy-demo.yaml`，以下使用 image `aws-cli` 建立測試 Pod。
 
 ```
 $ cat ./sg-policy-demo.yaml
@@ -78,7 +76,7 @@ spec:
   restartPolicy: Always
 ```
 
-8. 部署 `SecurityGroupPolicy` 及 `Pod`。
+7. 部署 `SecurityGroupPolicy` 及 `Pod`。
 
 ```
 $ kubectl apply -f ./sg-policy-demo.yaml
@@ -186,3 +184,5 @@ Events:
   Normal  NodeTrunkInitiated  16m   vpc-resource-controller  The node has trunk interface initialized successfully
 ```
 
+參考文件：
+1. Amazon EKS cluster IAM role - https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html
