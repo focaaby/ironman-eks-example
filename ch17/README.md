@@ -184,5 +184,125 @@ Events:
   Normal  NodeTrunkInitiated  16m   vpc-resource-controller  The node has trunk interface initialized successfully
 ```
 
+### branch interface
+```
+$ aws ec2 describe-network-interfaces --network-interface-ids eni-047ff73e04f5b733c
+{
+    "NetworkInterfaces": [
+        {
+            "AvailabilityZone": "eu-west-1c",
+            "Description": "aws-k8s-branch-eni",
+            "Groups": [
+                {
+                    "GroupName": "default",
+                    "GroupId": "sg-01d949d847be58d1c"
+                }
+            ],
+            "InterfaceType": "branch",
+            "Ipv6Addresses": [],
+            "MacAddress": "0a:59:43:ab:4a:81",
+            "NetworkInterfaceId": "eni-047ff73e04f5b733c",
+            "OwnerId": "111111111111",
+            "PrivateDnsName": "ip-192-168-29-178.eu-west-1.compute.internal",
+            "PrivateIpAddress": "192.168.29.178",
+            "PrivateIpAddresses": [
+                {
+                    "Primary": true,
+                    "PrivateDnsName": "ip-192-168-29-178.eu-west-1.compute.internal",
+                    "PrivateIpAddress": "192.168.29.178"
+                }
+            ],
+            "RequesterId": "895095153028",
+            "RequesterManaged": false,
+            "SourceDestCheck": true,
+            "Status": "in-use",
+            "SubnetId": "subnet-0699b5b8ff97ac92d",
+            "TagSet": [
+                {
+                    "Key": "vpcresources.k8s.aws/vlan-id",
+                    "Value": "1"
+                },
+                {
+                    "Key": "vpcresources.k8s.aws/trunk-eni-id",
+                    "Value": "eni-03e61f90252a662d1"
+                },
+                {
+                    "Key": "eks:eni:owner",
+                    "Value": "eks-vpc-resource-controller"
+                },
+                {
+                    "Key": "kubernetes.io/cluster/ironman",
+                    "Value": "owned"
+                }
+            ],
+            "VpcId": "vpc-0c135279d2fedea3d"
+        }
+    ]
+}
+```
+
+### trunk interface
+```
+$ aws ec2 describe-network-interfaces --network-interface-ids eni-03e61f90252a662d1
+{
+    "NetworkInterfaces": [
+        {
+            "Attachment": {
+                "AttachTime": "2023-08-18T07:27:41+00:00",
+                "AttachmentId": "eni-attach-003f2b4fdcff1d81b",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 2,
+                "NetworkCardIndex": 0,
+                "InstanceId": "i-00018772909497f61",
+                "InstanceOwnerId": "111111111111",
+                "Status": "attached"
+            },
+            "AvailabilityZone": "eu-west-1c",
+            "Description": "aws-k8s-trunk-eni",
+            "Groups": [
+                {
+                    "GroupName": "eksctl-ironman-nodegroup-ng1-public-ssh-remoteAccess",
+                    "GroupId": "sg-0a48a1b77f21917a1"
+                },
+                {
+                    "GroupName": "eks-cluster-sg-ironman-2068224914",
+                    "GroupId": "sg-0ed34525adc737837"
+                }
+            ],
+            "InterfaceType": "trunk",
+            "Ipv6Addresses": [],
+            "MacAddress": "0a:69:9e:6b:0c:0f",
+            "NetworkInterfaceId": "eni-03e61f90252a662d1",
+            "OwnerId": "111111111111",
+            "PrivateDnsName": "ip-192-168-13-247.eu-west-1.compute.internal",
+            "PrivateIpAddress": "192.168.13.247",
+            "PrivateIpAddresses": [
+                {
+                    "Primary": true,
+                    "PrivateDnsName": "ip-192-168-13-247.eu-west-1.compute.internal",
+                    "PrivateIpAddress": "192.168.13.247"
+                }
+            ],
+            "RequesterId": "895095153028",
+            "RequesterManaged": false,
+            "SourceDestCheck": true,
+            "Status": "in-use",
+            "SubnetId": "subnet-0699b5b8ff97ac92d",
+            "TagSet": [
+                {
+                    "Key": "eks:eni:owner",
+                    "Value": "eks-vpc-resource-controller"
+                },
+                {
+                    "Key": "kubernetes.io/cluster/ironman",
+                    "Value": "owned"
+                }
+            ],
+            "VpcId": "vpc-0c135279d2fedea3d"
+        }
+    ]
+}
+```
+
 參考文件：
 1. Amazon EKS cluster IAM role - https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html
