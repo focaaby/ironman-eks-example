@@ -1,0 +1,429 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA5V3NJ2SQVJSFQAC57:AmazonEKS",
+        "arn": "arn:aws:sts::111111111111:assumed-role/AWSServiceRoleForAmazonEKS/AmazonEKS",
+        "accountId": "111111111111",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA5V3NJ2SQVJSFQAC57",
+            "arn": "arn:aws:iam::111111111111:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS",
+            "accountId": "111111111111",
+            "userName": "AWSServiceRoleForAmazonEKS"
+          },
+          "webIdFederationData": {},
+          "attributes": {
+            "creationDate": "2023-08-26T16:39:58Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "invokedBy": "eks.amazonaws.com"
+      },
+      "eventTime": "2023-08-26T16:39:59Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "CreateNetworkInterface",
+      "awsRegion": "ap-northeast-1",
+      "sourceIPAddress": "eks.amazonaws.com",
+      "userAgent": "eks.amazonaws.com",
+      "requestParameters": {
+        "subnetId": "subnet-0db40d32907bcc948",
+        "description": "Amazon EKS demo-upgrade",
+        "groupSet": {
+          "items": [
+            {
+              "groupId": "sg-0c17a1b137065a559"
+            },
+            {
+              "groupId": "sg-0d2be36eee0ac7e6c"
+            }
+          ]
+        },
+        "privateIpAddressesSet": {},
+        "ipv6AddressCount": 0
+      },
+      "responseElements": {
+        "requestId": "adee2ad2-bf08-4840-9a7e-cbcea24f8f96",
+        "networkInterface": {
+          "networkInterfaceId": "eni-0fe0546cbf47a9552",
+          "subnetId": "subnet-0db40d32907bcc948",
+          "vpcId": "vpc-0e84aed4b60c2de75",
+          "availabilityZone": "ap-northeast-1c",
+          "description": "Amazon EKS demo-upgrade",
+          "ownerId": "111111111111",
+          "requesterId": "511558271078",
+          "requesterManaged": false,
+          "status": "pending",
+          "macAddress": "0a:ee:a8:00:8d:2b",
+          "privateIpAddress": "192.168.149.72",
+          "privateDnsName": "ip-192-168-149-72.ap-northeast-1.compute.internal",
+          "sourceDestCheck": true,
+          "interfaceType": "interface",
+          "groupSet": {
+            "items": [
+              {
+                "groupId": "sg-0d2be36eee0ac7e6c",
+                "groupName": "eksctl-demo-upgrade-cluster-ControlPlaneSecurityGroup-11YKJ7QQ0QWN4"
+              },
+              {
+                "groupId": "sg-0c17a1b137065a559",
+                "groupName": "eks-cluster-sg-demo-upgrade-1096673330"
+              }
+            ]
+          },
+          "privateIpAddressesSet": {
+            "item": [
+              {
+                "privateIpAddress": "192.168.149.72",
+                "privateDnsName": "ip-192-168-149-72.ap-northeast-1.compute.internal",
+                "primary": true
+              }
+            ]
+          },
+          "ipv6AddressesSet": {},
+          "tagSet": {}
+        }
+      },
+      "requestID": "adee2ad2-bf08-4840-9a7e-cbcea24f8f96",
+      "eventID": "4b8ca036-235a-4bb4-b325-8f17c9f169e1",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111111111111",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA5V3NJ2SQVJSFQAC57:AmazonEKS",
+        "arn": "arn:aws:sts::111111111111:assumed-role/AWSServiceRoleForAmazonEKS/AmazonEKS",
+        "accountId": "111111111111",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA5V3NJ2SQVJSFQAC57",
+            "arn": "arn:aws:iam::111111111111:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS",
+            "accountId": "111111111111",
+            "userName": "AWSServiceRoleForAmazonEKS"
+          },
+          "webIdFederationData": {},
+          "attributes": {
+            "creationDate": "2023-08-26T16:33:57Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "invokedBy": "eks.amazonaws.com"
+      },
+      "eventTime": "2023-08-26T16:33:58Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "CreateNetworkInterface",
+      "awsRegion": "ap-northeast-1",
+      "sourceIPAddress": "eks.amazonaws.com",
+      "userAgent": "eks.amazonaws.com",
+      "requestParameters": {
+        "subnetId": "subnet-0717ede5672e5772b",
+        "description": "Amazon EKS demo-upgrade",
+        "groupSet": {
+          "items": [
+            {
+              "groupId": "sg-0c17a1b137065a559"
+            },
+            {
+              "groupId": "sg-0d2be36eee0ac7e6c"
+            }
+          ]
+        },
+        "privateIpAddressesSet": {},
+        "ipv6AddressCount": 0
+      },
+      "responseElements": {
+        "requestId": "66698d08-9085-4aa8-9307-5858245503d3",
+        "networkInterface": {
+          "networkInterfaceId": "eni-023438cb2e49bbde4",
+          "subnetId": "subnet-0717ede5672e5772b",
+          "vpcId": "vpc-0e84aed4b60c2de75",
+          "availabilityZone": "ap-northeast-1a",
+          "description": "Amazon EKS demo-upgrade",
+          "ownerId": "111111111111",
+          "requesterId": "511558271078",
+          "requesterManaged": false,
+          "status": "pending",
+          "macAddress": "06:44:32:40:46:87",
+          "privateIpAddress": "192.168.163.63",
+          "privateDnsName": "ip-192-168-163-63.ap-northeast-1.compute.internal",
+          "sourceDestCheck": true,
+          "interfaceType": "interface",
+          "groupSet": {
+            "items": [
+              {
+                "groupId": "sg-0d2be36eee0ac7e6c",
+                "groupName": "eksctl-demo-upgrade-cluster-ControlPlaneSecurityGroup-11YKJ7QQ0QWN4"
+              },
+              {
+                "groupId": "sg-0c17a1b137065a559",
+                "groupName": "eks-cluster-sg-demo-upgrade-1096673330"
+              }
+            ]
+          },
+          "privateIpAddressesSet": {
+            "item": [
+              {
+                "privateIpAddress": "192.168.163.63",
+                "privateDnsName": "ip-192-168-163-63.ap-northeast-1.compute.internal",
+                "primary": true
+              }
+            ]
+          },
+          "ipv6AddressesSet": {},
+          "tagSet": {}
+        }
+      },
+      "requestID": "66698d08-9085-4aa8-9307-5858245503d3",
+      "eventID": "412f4ecc-c289-46db-a97c-1d82ad4ba2f1",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111111111111",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA5V3NJ2SQVJSFQAC57:AmazonEKS",
+        "arn": "arn:aws:sts::111111111111:assumed-role/AWSServiceRoleForAmazonEKS/AmazonEKS",
+        "accountId": "111111111111",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA5V3NJ2SQVJSFQAC57",
+            "arn": "arn:aws:iam::111111111111:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS",
+            "accountId": "111111111111",
+            "userName": "AWSServiceRoleForAmazonEKS"
+          },
+          "webIdFederationData": {},
+          "attributes": {
+            "creationDate": "2023-08-26T16:33:47Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "invokedBy": "eks.amazonaws.com"
+      },
+      "eventTime": "2023-08-26T16:33:47Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "CreateNetworkInterface",
+      "awsRegion": "ap-northeast-1",
+      "sourceIPAddress": "eks.amazonaws.com",
+      "userAgent": "eks.amazonaws.com",
+      "requestParameters": {
+        "subnetId": "subnet-0717ede5672e5772b",
+        "description": "Amazon EKS demo-upgrade",
+        "groupSet": {
+          "items": [
+            {
+              "groupId": "sg-0c17a1b137065a559"
+            },
+            {
+              "groupId": "sg-0d2be36eee0ac7e6c"
+            }
+          ]
+        },
+        "privateIpAddressesSet": {},
+        "ipv6AddressCount": 0
+      },
+      "responseElements": {
+        "requestId": "152368af-29a5-4159-826b-8a89ca8374ad",
+        "networkInterface": {
+          "networkInterfaceId": "eni-08dcb87dcfedc8b63",
+          "subnetId": "subnet-0717ede5672e5772b",
+          "vpcId": "vpc-0e84aed4b60c2de75",
+          "availabilityZone": "ap-northeast-1a",
+          "description": "Amazon EKS demo-upgrade",
+          "ownerId": "111111111111",
+          "requesterId": "511558271078",
+          "requesterManaged": false,
+          "status": "pending",
+          "macAddress": "06:99:7c:44:27:9d",
+          "privateIpAddress": "192.168.170.240",
+          "privateDnsName": "ip-192-168-170-240.ap-northeast-1.compute.internal",
+          "sourceDestCheck": true,
+          "interfaceType": "interface",
+          "groupSet": {
+            "items": [
+              {
+                "groupId": "sg-0d2be36eee0ac7e6c",
+                "groupName": "eksctl-demo-upgrade-cluster-ControlPlaneSecurityGroup-11YKJ7QQ0QWN4"
+              },
+              {
+                "groupId": "sg-0c17a1b137065a559",
+                "groupName": "eks-cluster-sg-demo-upgrade-1096673330"
+              }
+            ]
+          },
+          "privateIpAddressesSet": {
+            "item": [
+              {
+                "privateIpAddress": "192.168.170.240",
+                "privateDnsName": "ip-192-168-170-240.ap-northeast-1.compute.internal",
+                "primary": true
+              }
+            ]
+          },
+          "ipv6AddressesSet": {},
+          "tagSet": {}
+        }
+      },
+      "requestID": "152368af-29a5-4159-826b-8a89ca8374ad",
+      "eventID": "0c05fa79-6454-45d4-813a-276553cbf5f4",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111111111111",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA5V3NJ2SQVJSFQAC57:AmazonEKS",
+        "arn": "arn:aws:sts::111111111111:assumed-role/AWSServiceRoleForAmazonEKS/AmazonEKS",
+        "accountId": "111111111111",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA5V3NJ2SQVJSFQAC57",
+            "arn": "arn:aws:iam::111111111111:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS",
+            "accountId": "111111111111",
+            "userName": "AWSServiceRoleForAmazonEKS"
+          },
+          "webIdFederationData": {},
+          "attributes": {
+            "creationDate": "2023-08-26T16:31:56Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "invokedBy": "eks.amazonaws.com"
+      },
+      "eventTime": "2023-08-26T16:31:57Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "CreateNetworkInterface",
+      "awsRegion": "ap-northeast-1",
+      "sourceIPAddress": "eks.amazonaws.com",
+      "userAgent": "eks.amazonaws.com",
+      "errorCode": "Client.DryRunOperation",
+      "errorMessage": "Request would have succeeded, but DryRun flag is set.",
+      "requestParameters": {
+        "subnetId": "subnet-0e6ad2d7ecda2fe99",
+        "groupSet": {},
+        "privateIpAddressesSet": {}
+      },
+      "responseElements": null,
+      "requestID": "843c07a1-41f3-4075-a731-2050af979fb9",
+      "eventID": "4745022d-925e-49d7-8f5f-ae9762e1c6e7",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111111111111",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA5V3NJ2SQVJSFQAC57:AmazonEKS",
+        "arn": "arn:aws:sts::111111111111:assumed-role/AWSServiceRoleForAmazonEKS/AmazonEKS",
+        "accountId": "111111111111",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA5V3NJ2SQVJSFQAC57",
+            "arn": "arn:aws:iam::111111111111:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS",
+            "accountId": "111111111111",
+            "userName": "AWSServiceRoleForAmazonEKS"
+          },
+          "webIdFederationData": {},
+          "attributes": {
+            "creationDate": "2023-08-26T16:22:53Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "invokedBy": "eks.amazonaws.com"
+      },
+      "eventTime": "2023-08-26T16:22:53Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "CreateNetworkInterface",
+      "awsRegion": "ap-northeast-1",
+      "sourceIPAddress": "eks.amazonaws.com",
+      "userAgent": "eks.amazonaws.com",
+      "requestParameters": {
+        "subnetId": "subnet-0551cfc34f2bd65f6",
+        "description": "Amazon EKS demo-upgrade",
+        "groupSet": {
+          "items": [
+            {
+              "groupId": "sg-0c17a1b137065a559"
+            },
+            {
+              "groupId": "sg-0d2be36eee0ac7e6c"
+            }
+          ]
+        },
+        "privateIpAddressesSet": {},
+        "ipv6AddressCount": 0
+      },
+      "responseElements": {
+        "requestId": "77b69afa-25d7-421d-a980-3f313068b426",
+        "networkInterface": {
+          "networkInterfaceId": "eni-08389ddfa44342f5f",
+          "subnetId": "subnet-0551cfc34f2bd65f6",
+          "vpcId": "vpc-0e84aed4b60c2de75",
+          "availabilityZone": "ap-northeast-1d",
+          "description": "Amazon EKS demo-upgrade",
+          "ownerId": "111111111111",
+          "requesterId": "511558271078",
+          "requesterManaged": false,
+          "status": "pending",
+          "macAddress": "0e:ce:80:b1:8b:7d",
+          "privateIpAddress": "192.168.111.237",
+          "privateDnsName": "ip-192-168-111-237.ap-northeast-1.compute.internal",
+          "sourceDestCheck": true,
+          "interfaceType": "interface",
+          "groupSet": {
+            "items": [
+              {
+                "groupId": "sg-0d2be36eee0ac7e6c",
+                "groupName": "eksctl-demo-upgrade-cluster-ControlPlaneSecurityGroup-11YKJ7QQ0QWN4"
+              },
+              {
+                "groupId": "sg-0c17a1b137065a559",
+                "groupName": "eks-cluster-sg-demo-upgrade-1096673330"
+              }
+            ]
+          },
+          "privateIpAddressesSet": {
+            "item": [
+              {
+                "privateIpAddress": "192.168.111.237",
+                "privateDnsName": "ip-192-168-111-237.ap-northeast-1.compute.internal",
+                "primary": true
+              }
+            ]
+          },
+          "ipv6AddressesSet": {},
+          "tagSet": {}
+        }
+      },
+      "requestID": "77b69afa-25d7-421d-a980-3f313068b426",
+      "eventID": "639c220d-b250-4484-abc2-587197241fad",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111111111111",
+      "eventCategory": "Management"
+    }
+  ]
+}
