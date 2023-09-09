@@ -1,0 +1,175 @@
+[
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "7d56395e-88a4-4cf6-971b-2a6d96a3cd0a",
+            "stage": "ResponseComplete",
+            "requestURI": "/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations?fieldManager=kubectl-client-side-apply&fieldValidation=Strict&timeout=31s",
+            "verb": "create",
+            "user": {
+                "username": "eks:cluster-bootstrap",
+                "groups": [
+                    "system:masters",
+                    "system:authenticated"
+                ]
+            },
+            "sourceIPs": [
+                "10.0.101.172"
+            ],
+            "userAgent": "kubectl/v1.27.4 (linux/amd64) kubernetes/3d90c09",
+            "objectRef": {
+                "resource": "mutatingwebhookconfigurations",
+                "name": "pod-identity-webhook",
+                "apiGroup": "admissionregistration.k8s.io",
+                "apiVersion": "v1"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "code": 201
+            },
+            "requestObject": {
+                "kind": "MutatingWebhookConfiguration",
+                "apiVersion": "admissionregistration.k8s.io/v1",
+                "metadata": {
+                    "name": "pod-identity-webhook",
+                    "creationTimestamp": null,
+                    "annotations": {
+                        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"admissionregistration.k8s.io/v1\",\"kind\":\"MutatingWebhookConfiguration\",\"metadata\":{\"annotations\":{},\"name\":\"pod-identity-webhook\"},\"webhooks\":[{\"admissionReviewVersions\":[\"v1beta1\"],\"clientConfig\":{\"caBundle\":\"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTWEwSURXKzhyN1V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBNE1URXdOakUwTXpSYUZ3MHpNekE0TURnd05qRTBNelJhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMwQXlxQTdJQXh6TmlPQVRERHUxd3ZuTElMSm80c0tjbFdheFU4dWJ3UW44WTBKV2ZFYjQvK3phUC8KeXhSNUYvdXVWWVBocGlROXluNWRMZ3Z1ZkM4bmZuK3FNMzBqQkloZnRXYXFNRDF4UkJwcDlDUFZ6S2pUMG96LwpVVHFJa0hpUjR4VmJ5dU14VGV6VDZsaytrdnlVNDVPQnJNTTY5ZllIWFA1STlDN3A1cTVWT2d2RzRmSEhVRm1nCkJOOGl6V0x1V053WUJMdmM5Q2hQNlR3ZlU5N0lQaWpPQzFOa0J3WEpibUd4MWtZblY0VFNOQkd5Y2lkUVIrUU4KSWR4SkpmdU1CWkwvay85bThPTWcwR1Bmb083Kzk3ZkNvTGthbFNxa3Q0YlRmRWJYbXp1djAwT0JIRTR5cW1oNwpISlJRTVN2Q3p2N3dvcy9XM0dCTVZ2M0pnRitEQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJSVGpHVXhheGhsSkdtTUJUNE1ibmQ5N3BVdjVqQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ0NBeXdXWEJzNApDZXVtT3orWE5WZUNTbVhjcDlGaGt2cFJ3UnEvVEIrc052ZW5tbkt4SFFUemdaWHRqR0UwMVVwL2gzQ1FBMCtzCmJvMDFYbjg3bkJQYXpFV1p2aE5tNHB5MmxsOWRxNGszak53ckFTU3dVbzA3azVzK0g0d25OZzRGc3FWVjRRV1AKQVI4Q0xGTkJHMFpXaG81QmNpTER4YlJuNjJKOEZRMVpxZHAxUGg5K1pzQWsrVmw3cjhPemxIR1ZNQnR3RjRQNgo5eHA4cy9CdEpiTmpxSnBSMUtackVobmlSendiT2s2aUc0QW5oOUcwSkdYbTV5QnA1NnNMR3dVSjlLeGtmSjd0CjNMSEV3SU1PbXFwZ1J3WE5ya3FFOWNPL2NRZzRVQXJpclVHRHRibUpxMVBOU09oSnZremZJK1pkK3NGQWxKSGUKbk01eDltVzczWlZqCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K\",\"url\":\"https://127.0.0.1:23443/mutate\"},\"failurePolicy\":\"Ignore\",\"name\":\"iam-for-pods.amazonaws.com\",\"reinvocationPolicy\":\"IfNeeded\",\"rules\":[{\"apiGroups\":[\"\"],\"apiVersions\":[\"v1\"],\"operations\":[\"CREATE\"],\"resources\":[\"pods\"]}],\"sideEffects\":\"None\"}]}\n"
+                    }
+                },
+                "webhooks": [
+                    {
+                        "name": "iam-for-pods.amazonaws.com",
+                        "clientConfig": {
+                            "url": "https://127.0.0.1:23443/mutate",
+                            "caBundle": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTWEwSURXKzhyN1V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBNE1URXdOakUwTXpSYUZ3MHpNekE0TURnd05qRTBNelJhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMwQXlxQTdJQXh6TmlPQVRERHUxd3ZuTElMSm80c0tjbFdheFU4dWJ3UW44WTBKV2ZFYjQvK3phUC8KeXhSNUYvdXVWWVBocGlROXluNWRMZ3Z1ZkM4bmZuK3FNMzBqQkloZnRXYXFNRDF4UkJwcDlDUFZ6S2pUMG96LwpVVHFJa0hpUjR4VmJ5dU14VGV6VDZsaytrdnlVNDVPQnJNTTY5ZllIWFA1STlDN3A1cTVWT2d2RzRmSEhVRm1nCkJOOGl6V0x1V053WUJMdmM5Q2hQNlR3ZlU5N0lQaWpPQzFOa0J3WEpibUd4MWtZblY0VFNOQkd5Y2lkUVIrUU4KSWR4SkpmdU1CWkwvay85bThPTWcwR1Bmb083Kzk3ZkNvTGthbFNxa3Q0YlRmRWJYbXp1djAwT0JIRTR5cW1oNwpISlJRTVN2Q3p2N3dvcy9XM0dCTVZ2M0pnRitEQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJSVGpHVXhheGhsSkdtTUJUNE1ibmQ5N3BVdjVqQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ0NBeXdXWEJzNApDZXVtT3orWE5WZUNTbVhjcDlGaGt2cFJ3UnEvVEIrc052ZW5tbkt4SFFUemdaWHRqR0UwMVVwL2gzQ1FBMCtzCmJvMDFYbjg3bkJQYXpFV1p2aE5tNHB5MmxsOWRxNGszak53ckFTU3dVbzA3azVzK0g0d25OZzRGc3FWVjRRV1AKQVI4Q0xGTkJHMFpXaG81QmNpTER4YlJuNjJKOEZRMVpxZHAxUGg5K1pzQWsrVmw3cjhPemxIR1ZNQnR3RjRQNgo5eHA4cy9CdEpiTmpxSnBSMUtackVobmlSendiT2s2aUc0QW5oOUcwSkdYbTV5QnA1NnNMR3dVSjlLeGtmSjd0CjNMSEV3SU1PbXFwZ1J3WE5ya3FFOWNPL2NRZzRVQXJpclVHRHRibUpxMVBOU09oSnZremZJK1pkK3NGQWxKSGUKbk01eDltVzczWlZqCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+                        },
+                        "rules": [
+                            {
+                                "operations": [
+                                    "CREATE"
+                                ],
+                                "apiGroups": [
+                                    ""
+                                ],
+                                "apiVersions": [
+                                    "v1"
+                                ],
+                                "resources": [
+                                    "pods"
+                                ],
+                                "scope": "*"
+                            }
+                        ],
+                        "failurePolicy": "Ignore",
+                        "matchPolicy": "Equivalent",
+                        "namespaceSelector": {},
+                        "objectSelector": {},
+                        "sideEffects": "None",
+                        "timeoutSeconds": 10,
+                        "admissionReviewVersions": [
+                            "v1beta1"
+                        ],
+                        "reinvocationPolicy": "IfNeeded"
+                    }
+                ]
+            },
+            "responseObject": {
+                "kind": "MutatingWebhookConfiguration",
+                "apiVersion": "admissionregistration.k8s.io/v1",
+                "metadata": {
+                    "name": "pod-identity-webhook",
+                    "uid": "a16fb1d8-bee6-4cba-90c7-06b6d5bfecc3",
+                    "resourceVersion": "292",
+                    "generation": 1,
+                    "creationTimestamp": "2023-05-28T15:46:18Z",
+                    "annotations": {
+                        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"admissionregistration.k8s.io/v1\",\"kind\":\"MutatingWebhookConfiguration\",\"metadata\":{\"annotations\":{},\"name\":\"pod-identity-webhook\"},\"webhooks\":[{\"admissionReviewVersions\":[\"v1beta1\"],\"clientConfig\":{\"caBundle\":\"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTWEwSURXKzhyN1V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBNE1URXdOakUwTXpSYUZ3MHpNekE0TURnd05qRTBNelJhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMwQXlxQTdJQXh6TmlPQVRERHUxd3ZuTElMSm80c0tjbFdheFU4dWJ3UW44WTBKV2ZFYjQvK3phUC8KeXhSNUYvdXVWWVBocGlROXluNWRMZ3Z1ZkM4bmZuK3FNMzBqQkloZnRXYXFNRDF4UkJwcDlDUFZ6S2pUMG96LwpVVHFJa0hpUjR4VmJ5dU14VGV6VDZsaytrdnlVNDVPQnJNTTY5ZllIWFA1STlDN3A1cTVWT2d2RzRmSEhVRm1nCkJOOGl6V0x1V053WUJMdmM5Q2hQNlR3ZlU5N0lQaWpPQzFOa0J3WEpibUd4MWtZblY0VFNOQkd5Y2lkUVIrUU4KSWR4SkpmdU1CWkwvay85bThPTWcwR1Bmb083Kzk3ZkNvTGthbFNxa3Q0YlRmRWJYbXp1djAwT0JIRTR5cW1oNwpISlJRTVN2Q3p2N3dvcy9XM0dCTVZ2M0pnRitEQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJSVGpHVXhheGhsSkdtTUJUNE1ibmQ5N3BVdjVqQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ0NBeXdXWEJzNApDZXVtT3orWE5WZUNTbVhjcDlGaGt2cFJ3UnEvVEIrc052ZW5tbkt4SFFUemdaWHRqR0UwMVVwL2gzQ1FBMCtzCmJvMDFYbjg3bkJQYXpFV1p2aE5tNHB5MmxsOWRxNGszak53ckFTU3dVbzA3azVzK0g0d25OZzRGc3FWVjRRV1AKQVI4Q0xGTkJHMFpXaG81QmNpTER4YlJuNjJKOEZRMVpxZHAxUGg5K1pzQWsrVmw3cjhPemxIR1ZNQnR3RjRQNgo5eHA4cy9CdEpiTmpxSnBSMUtackVobmlSendiT2s2aUc0QW5oOUcwSkdYbTV5QnA1NnNMR3dVSjlLeGtmSjd0CjNMSEV3SU1PbXFwZ1J3WE5ya3FFOWNPL2NRZzRVQXJpclVHRHRibUpxMVBOU09oSnZremZJK1pkK3NGQWxKSGUKbk01eDltVzczWlZqCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K\",\"url\":\"https://127.0.0.1:23443/mutate\"},\"failurePolicy\":\"Ignore\",\"name\":\"iam-for-pods.amazonaws.com\",\"reinvocationPolicy\":\"IfNeeded\",\"rules\":[{\"apiGroups\":[\"\"],\"apiVersions\":[\"v1\"],\"operations\":[\"CREATE\"],\"resources\":[\"pods\"]}],\"sideEffects\":\"None\"}]}\n"
+                    },
+                    "managedFields": [
+                        {
+                            "manager": "kubectl-client-side-apply",
+                            "operation": "Update",
+                            "apiVersion": "admissionregistration.k8s.io/v1",
+                            "time": "2023-05-28T15:46:18Z",
+                            "fieldsType": "FieldsV1",
+                            "fieldsV1": {
+                                "f:metadata": {
+                                    "f:annotations": {
+                                        ".": {},
+                                        "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                                    }
+                                },
+                                "f:webhooks": {
+                                    ".": {},
+                                    "k:{\"name\":\"iam-for-pods.amazonaws.com\"}": {
+                                        ".": {},
+                                        "f:admissionReviewVersions": {},
+                                        "f:clientConfig": {
+                                            ".": {},
+                                            "f:caBundle": {},
+                                            "f:url": {}
+                                        },
+                                        "f:failurePolicy": {},
+                                        "f:matchPolicy": {},
+                                        "f:name": {},
+                                        "f:namespaceSelector": {},
+                                        "f:objectSelector": {},
+                                        "f:reinvocationPolicy": {},
+                                        "f:rules": {},
+                                        "f:sideEffects": {},
+                                        "f:timeoutSeconds": {}
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "webhooks": [
+                    {
+                        "name": "iam-for-pods.amazonaws.com",
+                        "clientConfig": {
+                            "url": "https://127.0.0.1:23443/mutate",
+                            "caBundle": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTWEwSURXKzhyN1V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBNE1URXdOakUwTXpSYUZ3MHpNekE0TURnd05qRTBNelJhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMwQXlxQTdJQXh6TmlPQVRERHUxd3ZuTElMSm80c0tjbFdheFU4dWJ3UW44WTBKV2ZFYjQvK3phUC8KeXhSNUYvdXVWWVBocGlROXluNWRMZ3Z1ZkM4bmZuK3FNMzBqQkloZnRXYXFNRDF4UkJwcDlDUFZ6S2pUMG96LwpVVHFJa0hpUjR4VmJ5dU14VGV6VDZsaytrdnlVNDVPQnJNTTY5ZllIWFA1STlDN3A1cTVWT2d2RzRmSEhVRm1nCkJOOGl6V0x1V053WUJMdmM5Q2hQNlR3ZlU5N0lQaWpPQzFOa0J3WEpibUd4MWtZblY0VFNOQkd5Y2lkUVIrUU4KSWR4SkpmdU1CWkwvay85bThPTWcwR1Bmb083Kzk3ZkNvTGthbFNxa3Q0YlRmRWJYbXp1djAwT0JIRTR5cW1oNwpISlJRTVN2Q3p2N3dvcy9XM0dCTVZ2M0pnRitEQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJSVGpHVXhheGhsSkdtTUJUNE1ibmQ5N3BVdjVqQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ0NBeXdXWEJzNApDZXVtT3orWE5WZUNTbVhjcDlGaGt2cFJ3UnEvVEIrc052ZW5tbkt4SFFUemdaWHRqR0UwMVVwL2gzQ1FBMCtzCmJvMDFYbjg3bkJQYXpFV1p2aE5tNHB5MmxsOWRxNGszak53ckFTU3dVbzA3azVzK0g0d25OZzRGc3FWVjRRV1AKQVI4Q0xGTkJHMFpXaG81QmNpTER4YlJuNjJKOEZRMVpxZHAxUGg5K1pzQWsrVmw3cjhPemxIR1ZNQnR3RjRQNgo5eHA4cy9CdEpiTmpxSnBSMUtackVobmlSendiT2s2aUc0QW5oOUcwSkdYbTV5QnA1NnNMR3dVSjlLeGtmSjd0CjNMSEV3SU1PbXFwZ1J3WE5ya3FFOWNPL2NRZzRVQXJpclVHRHRibUpxMVBOU09oSnZremZJK1pkK3NGQWxKSGUKbk01eDltVzczWlZqCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+                        },
+                        "rules": [
+                            {
+                                "operations": [
+                                    "CREATE"
+                                ],
+                                "apiGroups": [
+                                    ""
+                                ],
+                                "apiVersions": [
+                                    "v1"
+                                ],
+                                "resources": [
+                                    "pods"
+                                ],
+                                "scope": "*"
+                            }
+                        ],
+                        "failurePolicy": "Ignore",
+                        "matchPolicy": "Equivalent",
+                        "namespaceSelector": {},
+                        "objectSelector": {},
+                        "sideEffects": "None",
+                        "timeoutSeconds": 10,
+                        "admissionReviewVersions": [
+                            "v1beta1"
+                        ],
+                        "reinvocationPolicy": "IfNeeded"
+                    }
+                ]
+            },
+            "requestReceivedTimestamp": "2023-05-28T15:46:18.572526Z",
+            "stageTimestamp": "2023-05-28T15:46:18.586737Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": ""
+            }
+        }
+    }
+]

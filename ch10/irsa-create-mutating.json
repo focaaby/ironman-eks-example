@@ -1,0 +1,346 @@
+[
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "6cb6bc9b-8ca9-40b1-8829-f1235e5e370f",
+            "stage": "ResponseComplete",
+            "requestURI": "/api/v1/namespaces/default/pods?fieldManager=kubectl-run",
+            "verb": "create",
+            "user": {
+                "username": "kubernetes-admin",
+                "uid": "aws-iam-authenticator:111111111111:AIDAYFMQSNSE7DQH72FL7",
+                "groups": [
+                    "system:masters",
+                    "system:authenticated"
+                ],
+                "extra": {
+                    "accessKeyId": [
+                        "AKIAYFMQSNSE5H5ZTJDE"
+                    ],
+                    "arn": [
+                        "arn:aws:iam::111111111111:user/admin-cli"
+                    ],
+                    "canonicalArn": [
+                        "arn:aws:iam::111111111111:user/admin-cli"
+                    ],
+                    "principalId": [
+                        "AIDAYFMQSNSE7DQH72FL7"
+                    ],
+                    "sessionName": [
+                        ""
+                    ]
+                }
+            },
+            "sourceIPs": [
+                "34.243.235.127"
+            ],
+            "userAgent": "kubectl/v1.27.2 (linux/amd64) kubernetes/7f6f68f",
+            "objectRef": {
+                "resource": "pods",
+                "namespace": "default",
+                "name": "aws-cli",
+                "apiVersion": "v1"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "code": 201
+            },
+            "requestObject": {
+                "kind": "Pod",
+                "apiVersion": "v1",
+                "metadata": {
+                    "name": "aws-cli",
+                    "creationTimestamp": null,
+                    "labels": {
+                        "run": "aws-cli"
+                    }
+                },
+                "spec": {
+                    "containers": [
+                        {
+                            "name": "aws-cli",
+                            "image": "amazon/aws-cli",
+                            "command": [
+                                "sleep",
+                                "infinity"
+                            ],
+                            "resources": {},
+                            "terminationMessagePath": "/dev/termination-log",
+                            "terminationMessagePolicy": "File",
+                            "imagePullPolicy": "Always"
+                        }
+                    ],
+                    "restartPolicy": "Always",
+                    "terminationGracePeriodSeconds": 30,
+                    "dnsPolicy": "ClusterFirst",
+                    "serviceAccountName": "ironman-s3-sa",
+                    "serviceAccount": "ironman-s3-sa",
+                    "securityContext": {},
+                    "schedulerName": "default-scheduler",
+                    "enableServiceLinks": true
+                },
+                "status": {}
+            },
+            "responseObject": {
+                "kind": "Pod",
+                "apiVersion": "v1",
+                "metadata": {
+                    "name": "aws-cli",
+                    "namespace": "default",
+                    "uid": "6588952e-04ce-4eb5-888e-73fd3b3381e7",
+                    "resourceVersion": "8849819",
+                    "creationTimestamp": "2023-07-03T16:33:21Z",
+                    "labels": {
+                        "run": "aws-cli"
+                    },
+                    "managedFields": [
+                        {
+                            "manager": "kubectl-run",
+                            "operation": "Update",
+                            "apiVersion": "v1",
+                            "time": "2023-07-03T16:33:21Z",
+                            "fieldsType": "FieldsV1",
+                            "fieldsV1": {
+                                "f:metadata": {
+                                    "f:labels": {
+                                        ".": {},
+                                        "f:run": {}
+                                    }
+                                },
+                                "f:spec": {
+                                    "f:containers": {
+                                        "k:{\"name\":\"aws-cli\"}": {
+                                            ".": {},
+                                            "f:command": {},
+                                            "f:image": {},
+                                            "f:imagePullPolicy": {},
+                                            "f:name": {},
+                                            "f:resources": {},
+                                            "f:terminationMessagePath": {},
+                                            "f:terminationMessagePolicy": {}
+                                        }
+                                    },
+                                    "f:dnsPolicy": {},
+                                    "f:enableServiceLinks": {},
+                                    "f:restartPolicy": {},
+                                    "f:schedulerName": {},
+                                    "f:securityContext": {},
+                                    "f:serviceAccount": {},
+                                    "f:serviceAccountName": {},
+                                    "f:terminationGracePeriodSeconds": {}
+                                }
+                            }
+                        }
+                    ]
+                },
+                "spec": {
+                    "volumes": [
+                        {
+                            "name": "aws-iam-token",
+                            "projected": {
+                                "sources": [
+                                    {
+                                        "serviceAccountToken": {
+                                            "audience": "sts.amazonaws.com",
+                                            "expirationSeconds": 86400,
+                                            "path": "token"
+                                        }
+                                    }
+                                ],
+                                "defaultMode": 420
+                            }
+                        },
+                        {
+                            "name": "kube-api-access-rzdtz",
+                            "projected": {
+                                "sources": [
+                                    {
+                                        "serviceAccountToken": {
+                                            "expirationSeconds": 3607,
+                                            "path": "token"
+                                        }
+                                    },
+                                    {
+                                        "configMap": {
+                                            "name": "kube-root-ca.crt",
+                                            "items": [
+                                                {
+                                                    "key": "ca.crt",
+                                                    "path": "ca.crt"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "downwardAPI": {
+                                            "items": [
+                                                {
+                                                    "path": "namespace",
+                                                    "fieldRef": {
+                                                        "apiVersion": "v1",
+                                                        "fieldPath": "metadata.namespace"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "defaultMode": 420
+                            }
+                        }
+                    ],
+                    "containers": [
+                        {
+                            "name": "aws-cli",
+                            "image": "amazon/aws-cli",
+                            "command": [
+                                "sleep",
+                                "infinity"
+                            ],
+                            "env": [
+                                {
+                                    "name": "AWS_STS_REGIONAL_ENDPOINTS",
+                                    "value": "regional"
+                                },
+                                {
+                                    "name": "AWS_DEFAULT_REGION",
+                                    "value": "eu-west-1"
+                                },
+                                {
+                                    "name": "AWS_REGION",
+                                    "value": "eu-west-1"
+                                },
+                                {
+                                    "name": "AWS_ROLE_ARN",
+                                    "value": "arn:aws:iam::111111111111:role/eksctl-ironman-addon-iamserviceaccount-defau-Role1-1D8NH64CZ7VFB"
+                                },
+                                {
+                                    "name": "AWS_WEB_IDENTITY_TOKEN_FILE",
+                                    "value": "/var/run/secrets/eks.amazonaws.com/serviceaccount/token"
+                                }
+                            ],
+                            "resources": {},
+                            "volumeMounts": [
+                                {
+                                    "name": "kube-api-access-rzdtz",
+                                    "readOnly": true,
+                                    "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                                },
+                                {
+                                    "name": "aws-iam-token",
+                                    "readOnly": true,
+                                    "mountPath": "/var/run/secrets/eks.amazonaws.com/serviceaccount"
+                                }
+                            ],
+                            "terminationMessagePath": "/dev/termination-log",
+                            "terminationMessagePolicy": "File",
+                            "imagePullPolicy": "Always"
+                        }
+                    ],
+                    "restartPolicy": "Always",
+                    "terminationGracePeriodSeconds": 30,
+                    "dnsPolicy": "ClusterFirst",
+                    "serviceAccountName": "ironman-s3-sa",
+                    "serviceAccount": "ironman-s3-sa",
+                    "securityContext": {},
+                    "schedulerName": "default-scheduler",
+                    "tolerations": [
+                        {
+                            "key": "node.kubernetes.io/not-ready",
+                            "operator": "Exists",
+                            "effect": "NoExecute",
+                            "tolerationSeconds": 300
+                        },
+                        {
+                            "key": "node.kubernetes.io/unreachable",
+                            "operator": "Exists",
+                            "effect": "NoExecute",
+                            "tolerationSeconds": 300
+                        }
+                    ],
+                    "priority": 0,
+                    "enableServiceLinks": true,
+                    "preemptionPolicy": "PreemptLowerPriority"
+                },
+                "status": {
+                    "phase": "Pending",
+                    "qosClass": "BestEffort"
+                }
+            },
+            "requestReceivedTimestamp": "2023-07-03T16:33:21.876882Z",
+            "stageTimestamp": "2023-07-03T16:33:21.896392Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": "",
+                "mutation.webhook.admission.k8s.io/round_0_index_0": "{\"configuration\":\"0500-amazon-eks-fargate-mutation.amazonaws.com\",\"webhook\":\"0500-amazon-eks-fargate-mutation.amazonaws.com\",\"mutated\":false}",
+                "mutation.webhook.admission.k8s.io/round_0_index_2": "{\"configuration\":\"pod-identity-webhook\",\"webhook\":\"iam-for-pods.amazonaws.com\",\"mutated\":true}",
+                "mutation.webhook.admission.k8s.io/round_0_index_3": "{\"configuration\":\"vpc-resource-mutating-webhook\",\"webhook\":\"mpod.vpc.k8s.aws\",\"mutated\":false}",
+                "patch.webhook.admission.k8s.io/round_0_index_2": "{\"configuration\":\"pod-identity-webhook\",\"webhook\":\"iam-for-pods.amazonaws.com\",\"patch\":[{\"op\":\"add\",\"path\":\"/spec/volumes/0\",\"value\":{\"name\":\"aws-iam-token\",\"projected\":{\"sources\":[{\"serviceAccountToken\":{\"audience\":\"sts.amazonaws.com\",\"expirationSeconds\":86400,\"path\":\"token\"}}]}}},{\"op\":\"add\",\"path\":\"/spec/containers\",\"value\":[{\"name\":\"aws-cli\",\"image\":\"amazon/aws-cli\",\"command\":[\"sleep\",\"infinity\"],\"env\":[{\"name\":\"AWS_STS_REGIONAL_ENDPOINTS\",\"value\":\"regional\"},{\"name\":\"AWS_DEFAULT_REGION\",\"value\":\"eu-west-1\"},{\"name\":\"AWS_REGION\",\"value\":\"eu-west-1\"},{\"name\":\"AWS_ROLE_ARN\",\"value\":\"arn:aws:iam::111111111111:role/eksctl-ironman-addon-iamserviceaccount-defau-Role1-1D8NH64CZ7VFB\"},{\"name\":\"AWS_WEB_IDENTITY_TOKEN_FILE\",\"value\":\"/var/run/secrets/eks.amazonaws.com/serviceaccount/token\"}],\"resources\":{},\"volumeMounts\":[{\"name\":\"kube-api-access-rzdtz\",\"readOnly\":true,\"mountPath\":\"/var/run/secrets/kubernetes.io/serviceaccount\"},{\"name\":\"aws-iam-token\",\"readOnly\":true,\"mountPath\":\"/var/run/secrets/eks.amazonaws.com/serviceaccount\"}],\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}]}],\"patchType\":\"JSONPatch\"}",
+                "pod-security.kubernetes.io/enforce-policy": "privileged:latest"
+            }
+        }
+    },
+    {
+        "@message": {
+            "kind": "Event",
+            "apiVersion": "audit.k8s.io/v1",
+            "level": "RequestResponse",
+            "auditID": "4f9befb8-690a-43b9-bd3b-e8b0a76e1f82",
+            "stage": "ResponseComplete",
+            "requestURI": "/api/v1/namespaces/default/pods/aws-cli/binding",
+            "verb": "create",
+            "user": {
+                "username": "system:kube-scheduler",
+                "groups": [
+                    "system:authenticated"
+                ]
+            },
+            "sourceIPs": [
+                "10.0.176.66"
+            ],
+            "userAgent": "kube-scheduler/v1.27.2 (linux/amd64) kubernetes/002c6bc/scheduler",
+            "objectRef": {
+                "resource": "pods",
+                "namespace": "default",
+                "name": "aws-cli",
+                "uid": "6588952e-04ce-4eb5-888e-73fd3b3381e7",
+                "apiVersion": "v1",
+                "subresource": "binding"
+            },
+            "responseStatus": {
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestObject": {
+                "kind": "Binding",
+                "apiVersion": "v1",
+                "metadata": {
+                    "name": "aws-cli",
+                    "namespace": "default",
+                    "uid": "6588952e-04ce-4eb5-888e-73fd3b3381e7",
+                    "creationTimestamp": null
+                },
+                "target": {
+                    "kind": "Node",
+                    "name": "ip-192-168-45-208.eu-west-1.compute.internal"
+                }
+            },
+            "responseObject": {
+                "kind": "Status",
+                "apiVersion": "v1",
+                "metadata": {},
+                "status": "Success",
+                "code": 201
+            },
+            "requestReceivedTimestamp": "2023-07-03T16:33:21.898426Z",
+            "stageTimestamp": "2023-07-03T16:33:21.907580Z",
+            "annotations": {
+                "authorization.k8s.io/decision": "allow",
+                "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"system:kube-scheduler\" of ClusterRole \"system:kube-scheduler\" to User \"system:kube-scheduler\""
+            }
+        }
+    }
+]
