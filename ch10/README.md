@@ -1,72 +1,76 @@
-## 建置 IRSA 環境
+# 建置 IRSA 環境
 
 1. 於本地建立以下 IAM policy 並儲存為 `s3-example-iam-policy.json` 檔案。
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetObject",
-                "s3:GetObjectVersion"
-            ],
-            "Resource": "arn:aws:s3:::*"
-        }
-    ]
-}
-```
+    ```bash
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:ListBucket",
+                    "s3:GetObject",
+                    "s3:GetObjectVersion"
+                ],
+                "Resource": "arn:aws:s3:::*"
+            }
+        ]
+    }
+    ```
+
 2. 透過 AWS CLI `aws iam create-policy` 命令建立 IAM Policy。
 
-```
-$ aws iam create-policy --policy-name ironman-s3-example --policy-document file://s3-example-iam-policy.json
-{
-    "Policy": {
-        "PolicyName": "ironman-s3-example",
-        "PolicyId": "ANPAYFMQSNSEYJAANDYSB",
-        "Arn": "arn:aws:iam::111111111111:policy/ironman-s3-example",
-        "Path": "/",
-        "DefaultVersionId": "v1",
-        "AttachmentCount": 0,
-        "PermissionsBoundaryUsageCount": 0,
-        "IsAttachable": true,
-        "CreateDate": "2023-07-03T16:22:43+00:00",
-        "UpdateDate": "2023-07-03T16:22:43+00:00"
+    ```bash
+    $ aws iam create-policy --policy-name ironman-s3-example --policy-document file://s3-example-iam-policy.json
+    {
+        "Policy": {
+            "PolicyName": "ironman-s3-example",
+            "PolicyId": "ANPAYFMQSNSEYJAANDYSB",
+            "Arn": "arn:aws:iam::111111111111:policy/ironman-s3-example",
+            "Path": "/",
+            "DefaultVersionId": "v1",
+            "AttachmentCount": 0,
+            "PermissionsBoundaryUsageCount": 0,
+            "IsAttachable": true,
+            "CreateDate": "2023-07-03T16:22:43+00:00",
+            "UpdateDate": "2023-07-03T16:22:43+00:00"
+        }
     }
-}
-```
+    ```
 
 3. 透過 `eksctl` 命令建立 Kubernetes Service Account 及 IAM role。此會透過 CloudFormation 服務建立 IAM role。
-```
-$ eksctl create iamserviceaccount \
-  --name ironman-s3-sa \
-  --namespace default \
-  --cluster ironman \
-  --attach-policy-arn arn:aws:iam::111111111111:policy/ironman-s3-example \
-  --approve
-2023-07-03 16:23:24 [ℹ]  1 existing iamserviceaccount(s) (kube-system/aws-node) will be excluded
-2023-07-03 16:23:24 [ℹ]  1 iamserviceaccount (default/ironman-s3-sa) was included (based on the include/exclude rules)
-2023-07-03 16:23:24 [!]  serviceaccounts that exist in Kubernetes will be excluded, use --override-existing-serviceaccounts to override
-2023-07-03 16:23:24 [ℹ]  1 task: {
-    2 sequential sub-tasks: {
-        create IAM role for serviceaccount "default/ironman-s3-sa",
-        create serviceaccount "default/ironman-s3-sa",
-    } }2023-07-03 16:23:24 [ℹ]  building iamserviceaccount stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
-2023-07-03 16:23:24 [ℹ]  deploying stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
-2023-07-03 16:23:24 [ℹ]  waiting for CloudFormation stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
-2023-07-03 16:23:54 [ℹ]  waiting for CloudFormation stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
-2023-07-03 16:23:54 [ℹ]  created serviceaccount "default/ironman-s3-sa"
-```
+
+    ```bash
+    $ eksctl create iamserviceaccount \
+      --name ironman-s3-sa \
+      --namespace default \
+      --cluster ironman \
+      --attach-policy-arn arn:aws:iam::111111111111:policy/ironman-s3-example \
+      --approve
+    2023-07-03 16:23:24 [ℹ]  1 existing iamserviceaccount(s) (kube-system/aws-node) will be excluded
+    2023-07-03 16:23:24 [ℹ]  1 iamserviceaccount (default/ironman-s3-sa) was included (based on the include/exclude rules)
+    2023-07-03 16:23:24 [!]  serviceaccounts that exist in Kubernetes will be excluded, use --override-existing-serviceaccounts to override
+    2023-07-03 16:23:24 [ℹ]  1 task: {
+        2 sequential sub-tasks: {
+            create IAM role for serviceaccount "default/ironman-s3-sa",
+            create serviceaccount "default/ironman-s3-sa",
+        } }2023-07-03 16:23:24 [ℹ]  building iamserviceaccount stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
+    2023-07-03 16:23:24 [ℹ]  deploying stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
+    2023-07-03 16:23:24 [ℹ]  waiting for CloudFormation stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
+    2023-07-03 16:23:54 [ℹ]  waiting for CloudFormation stack "eksctl-ironman-addon-iamserviceaccount-default-ironman-s3-sa"
+    2023-07-03 16:23:54 [ℹ]  created serviceaccount "default/ironman-s3-sa"
+    ```
 
 4. 使用 AWS CLI image 作為測試 Pod 並關聯 Service Account `ironman-s3-sa`。
-```
-$ kubectl run aws-cli --image="amazon/aws-cli" --command sleep infinity --overrides='{ "spec": { "serviceAccountName": "ironman-s3-sa" } }'
-```
+
+    ```bash
+    kubectl run aws-cli --image="amazon/aws-cli" --command sleep infinity --overrides='{ "spec": { "serviceAccountName": "ironman-s3-sa" } }'
+    ```
 
 ## Pod aws-cli
-```
+
+```bash
 $ kubectl describe po aws-cli
 Name:             aws-cli
 Namespace:        default
@@ -131,3 +135,4 @@ Events:
   Normal  Pulled     2m4s  kubelet            Successfully pulled image "amazon/aws-cli" in 569.674479ms (569.693995ms including waiting)
   Normal  Created    2m4s  kubelet            Created container aws-cli
   Normal  Started    2m4s  kubelet            Started container aws-cli
+```

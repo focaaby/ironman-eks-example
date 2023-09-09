@@ -1,6 +1,8 @@
+# 實驗輸出內容
 
 ## 1.27 kubelet systemd unit config
-```
+
+```bash
 [ec2-user@ip-192-168-30-190 ~]$ systemctl cat kubelet
 # /etc/systemd/system/kubelet.service
 [Unit]
@@ -38,9 +40,10 @@ Environment='KUBELET_ARGS=--node-ip=192.168.30.190 --pod-infra-container-image=6
 [Service]
 Environment='KUBELET_EXTRA_ARGS=--node-labels=eks.amazonaws.com/sourceLaunchTemplateVersion=1,alpha.eksctl.io/cluster-name=ironman,alpha.eksctl
 ```
+
 ## containerd config
 
-```
+```bash
 [ec2-user@ip-192-168-30-190 ~]$ cat /etc/containerd/config.toml
 version = 2
 root = "/var/lib/containerd"

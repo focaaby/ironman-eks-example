@@ -1,6 +1,8 @@
+# 實驗輸出內容
+
 ## cloud-init config
 
-```
+```bash
 $ aws cloudformation get-template --stack-name eksctl-ironman-nodegroup-demo-self-ng --query TemplateBody.Resources.NodeGroupLaunchTemplate.Properties.LaunchTemplateData.UserData --output text | base64 -d | gunzip
 #cloud-config
 packages: null

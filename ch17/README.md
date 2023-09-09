@@ -1,92 +1,92 @@
-## 建置環境
+# 建置環境
 
-1. 檢視 VPC CNI plugin 版本。當前測試版本為： `v1.12.6`。
+1. 檢視 VPC CNI plugin 版本。當前測試版本為 `v1.12.6`。
 
-```
-$ kubectl describe daemonset aws-node --namespace kube-system | grep Image | cut -d "/" -f 2
-amazon-k8s-cni-init:v1.12.6-eksbuild.2
-amazon-k8s-cni:v1.12.6-eksbuild.2
-```
+    ```bash
+    $ kubectl describe daemonset aws-node --namespace kube-system | grep Image | cut -d "/" -f 2
+    amazon-k8s-cni-init:v1.12.6-eksbuild.2
+    amazon-k8s-cni:v1.12.6-eksbuild.2
+    ```
 
-2. 查看叢集所使用的 [EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html)[1]。
+2. 查看叢集所使用的 [EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) [1]。
 
-```
-$ aws eks describe-cluster --name ironman --query cluster.roleArn --output text
-arn:aws:iam::111111111111:role/eksctl-ironman-cluster-ServiceRole-1KZA9GL6BA7OQ
-```
+    ```bash
+    $ aws eks describe-cluster --name ironman --query cluster.roleArn --output text
+    arn:aws:iam::111111111111:role/eksctl-ironman-cluster-ServiceRole-1KZA9GL6BA7OQ
+    ```
 
-3. 將 Policy `AmazonEKSVPCResourceController` 關聯至 EKS 叢集 IAM role。
+3. 將 IAM sPolicy `AmazonEKSVPCResourceController` 關聯至 EKS 叢集 IAM role。
 
-```
-$ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSVPCResourceController --role-name eksctl-ironman-cluster-ServiceRole-1KZA9GL6BA7OQ
-```
+    ```bash
+    aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSVPCResourceController --role-name eksctl-ironman-cluster-ServiceRole-1KZA9GL6BA7OQ
+    ```
 
 4. 設定 `DaemonSet` `aws-node`環境變數 `ENABLE_POD_ENI` 為 `true`。
 
-```
-$ kubectl set env daemonset aws-node -n kube-system ENABLE_POD_ENI=true
-daemonset.apps/aws-node env updated
-```
+    ```bash
+    $ kubectl set env daemonset aws-node -n kube-system ENABLE_POD_ENI=true
+    daemonset.apps/aws-node env updated
+    ```
 
 5. 設定環境變數將會導致 Pod 重啟。等候數秒後，可以觀察到節點更新 label `vpc.amazonaws.com/has-trunk-attached`。
 
-```
-$ kubectl -n kube-system get po | grep "aws-node"
-aws-node-2frfg             1/1     Running   0          41s
-aws-node-x769d             1/1     Running   0          38s
+    ```bash
+    $ kubectl -n kube-system get po | grep "aws-node"
+    aws-node-2frfg             1/1     Running   0          41s
+    aws-node-x769d             1/1     Running   0          38s
 
-$ kubectl get nodes -l vpc.amazonaws.com/has-trunk-attached=true
-NAME                                                STATUS   ROLES    AGE   VERSION
-ip-192-168-18-171.eu-west-1.compute.internal   Ready    <none>   25h   v1.27.3-eks-a5565ad
-ip-192-168-34-221.eu-west-1.compute.internal   Ready    <none>   7d    v1.27.3-eks-a5565ad
-```
+    $ kubectl get nodes -l vpc.amazonaws.com/has-trunk-attached=true
+    NAME                                                STATUS   ROLES    AGE   VERSION
+    ip-192-168-18-171.eu-west-1.compute.internal   Ready    <none>   25h   v1.27.3-eks-a5565ad
+    ip-192-168-34-221.eu-west-1.compute.internal   Ready    <none>   7d    v1.27.3-eks-a5565ad
+    ```
 
 6. 建立以下 `sg-policy-demo.yaml`，以下使用 image `aws-cli` 建立測試 Pod。
 
-```
-$ cat ./sg-policy-demo.yaml
-apiVersion: vpcresources.k8s.aws/v1beta1
-kind: SecurityGroupPolicy
-metadata:
-  name: my-security-group-policy-demo
-  namespace: default
-spec:
-  podSelector:
-    matchLabels:
-      role: demo-sg
-  securityGroups:
-    groupIds:
-      - sg-01d949d847be58d1c
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: aws-cli
-  namespace: default
-  labels:
-    role: demo-sg
-spec:
-  containers:
-  - name: aws-cli
-    image: amazon/aws-cli:latest
-    command:
-      - sleep
-      - infinity
-    imagePullPolicy: IfNotPresent
-  restartPolicy: Always
-```
+    ```bash
+    $ cat ./sg-policy-demo.yaml
+    apiVersion: vpcresources.k8s.aws/v1beta1
+    kind: SecurityGroupPolicy
+    metadata:
+      name: my-security-group-policy-demo
+      namespace: default
+    spec:
+      podSelector:
+        matchLabels:
+          role: demo-sg
+      securityGroups:
+        groupIds:
+          - sg-01d949d847be58d1c
+    ---
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: aws-cli
+      namespace: default
+      labels:
+        role: demo-sg
+    spec:
+      containers:
+      - name: aws-cli
+        image: amazon/aws-cli:latest
+        command:
+          - sleep
+          - infinity
+        imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+    ```
 
 7. 部署 `SecurityGroupPolicy` 及 `Pod`。
 
-```
-$ kubectl apply -f ./sg-policy-demo.yaml
-securitygrouppolicy.vpcresources.k8s.aws/my-security-group-policy-demo created
-pod/aws-cli created
-```
+    ```bash
+    $ kubectl apply -f ./sg-policy-demo.yaml
+    securitygrouppolicy.vpcresources.k8s.aws/my-security-group-policy-demo created
+    pod/aws-cli created
+    ```
 
 ## Node information
 
-```
+```bash
 $ kubectl describe no ip-192-168-18-171.eu-west-1.compute.internal
 Name:               ip-192-168-18-171.eu-west-1.compute.internal
 Roles:              <none>
@@ -185,7 +185,8 @@ Events:
 ```
 
 ### branch interface
-```
+
+```bash
 $ aws ec2 describe-network-interfaces --network-interface-ids eni-047ff73e04f5b733c
 {
     "NetworkInterfaces": [
@@ -242,7 +243,8 @@ $ aws ec2 describe-network-interfaces --network-interface-ids eni-047ff73e04f5b7
 ```
 
 ### trunk interface
-```
+
+```bash
 $ aws ec2 describe-network-interfaces --network-interface-ids eni-03e61f90252a662d1
 {
     "NetworkInterfaces": [
@@ -304,5 +306,6 @@ $ aws ec2 describe-network-interfaces --network-interface-ids eni-03e61f90252a66
 }
 ```
 
-參考文件：
-1. Amazon EKS cluster IAM role - https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html
+## 參考文件
+
+1. Amazon EKS cluster IAM role - <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html>
