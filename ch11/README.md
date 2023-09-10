@@ -1,6 +1,6 @@
 # 實驗
 
-## 建立 Managed node groups 及 Self-managed node groups
+## （一）建立 Managed node groups 及 Self-managed node groups
 
 1. 透過 `eksctl` 命令建立新的 managed node group `demo-ng`。
 
@@ -129,7 +129,7 @@
       }
     ```
 
-## 建立 Kubernetes Deployment object 並終止其中一 Managed 節點
+## （二）建立 Kubernetes Deployment object 並終止其中一個 Managed 節點
 
 1. 透過 kubectl label 過濾 managed node group `demo-ng`。
 
@@ -198,9 +198,9 @@
     ProviderID:                   aws:///eu-west-1a/i-06da872dc9dbaa06f
 
     $ aws autoscaling terminate-instance-in-auto-scaling-group --instance-id i-06da872dc9dbaa06f --should-decrement-desired-capacity
+            "ActivityId": "906624ec-a426-09cb-a041-a869f7ffb3ff",
     {
         "Activity": {
-            "ActivityId": "906624ec-a426-09cb-a041-a869f7ffb3ff",
             "AutoScalingGroupName": "eks-demo-ng-2ac4941f-d51b-87e0-30e3-fe83f3d78e7f",
             "Description": "Terminating EC2 instance: i-06da872dc9dbaa06f",
             "Cause": "At 2023-07-09T14:58:12Z instance i-06da872dc9dbaa06f was taken out of service in response to a user request, shrinking the capacity from 1 to 0.",
