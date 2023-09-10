@@ -81,53 +81,53 @@
 
 4. 透過 `diff` 命令比對差異：
 
-  ```bash
-  $ diff managed-labels.json self-managed-labels.json --context
-  *** managed-labels.json 2023-07-05 22:58:46.217607302 +0000
-  --- self-managed-labels.json    2023-07-05 22:58:51.633463328 +0000
-  ***************
-  *** 1,21 ****
-    {
-      "alpha.eksctl.io/cluster-name": "ironman",
-  !   "alpha.eksctl.io/nodegroup-name": "demo-ng",
-      "beta.kubernetes.io/arch": "amd64",
-      "beta.kubernetes.io/instance-type": "m5.large",
-      "beta.kubernetes.io/os": "linux",
-  -   "eks.amazonaws.com/capacityType": "ON_DEMAND",
-  -   "eks.amazonaws.com/nodegroup": "demo-ng",
-  -   "eks.amazonaws.com/nodegroup-image": "ami-05fb5fbb50e08e8be",
-  -   "eks.amazonaws.com/sourceLaunchTemplateId": "lt-00a8d7d3a81de1368",
-  -   "eks.amazonaws.com/sourceLaunchTemplateVersion": "1",
-      "failure-domain.beta.kubernetes.io/region": "eu-west-1",
-  !   "failure-domain.beta.kubernetes.io/zone": "eu-west-1a",
-      "k8s.io/cloud-provider-aws": "65a3fe7010d444e2b6d9d72e9d1f7e67",
-      "kubernetes.io/arch": "amd64",
-  !   "kubernetes.io/hostname": "ip-192-168-82-7.eu-west-1.compute.internal",
-      "kubernetes.io/os": "linux",
-      "node.kubernetes.io/instance-type": "m5.large",
-      "topology.kubernetes.io/region": "eu-west-1",
-  !   "topology.kubernetes.io/zone": "eu-west-1a"
-    }
-  --- 1,18 ----
-    {
-      "alpha.eksctl.io/cluster-name": "ironman",
-  !   "alpha.eksctl.io/instance-id": "i-02bc2f45829b9111f",
-  !   "alpha.eksctl.io/nodegroup-name": "demo-self-ng",
-      "beta.kubernetes.io/arch": "amd64",
-      "beta.kubernetes.io/instance-type": "m5.large",
-      "beta.kubernetes.io/os": "linux",
-      "failure-domain.beta.kubernetes.io/region": "eu-west-1",
-  !   "failure-domain.beta.kubernetes.io/zone": "eu-west-1c",
-      "k8s.io/cloud-provider-aws": "65a3fe7010d444e2b6d9d72e9d1f7e67",
-      "kubernetes.io/arch": "amd64",
-  !   "kubernetes.io/hostname": "ip-192-168-18-58.eu-west-1.compute.internal",
-      "kubernetes.io/os": "linux",
-  +   "node-lifecycle": "on-demand",
-      "node.kubernetes.io/instance-type": "m5.large",
-      "topology.kubernetes.io/region": "eu-west-1",
-  !   "topology.kubernetes.io/zone": "eu-west-1c"
-    }
-  ```
+    ```bash
+    $ diff managed-labels.json self-managed-labels.json --context
+    *** managed-labels.json 2023-07-05 22:58:46.217607302 +0000
+    --- self-managed-labels.json    2023-07-05 22:58:51.633463328 +0000
+    ***************
+    *** 1,21 ****
+      {
+        "alpha.eksctl.io/cluster-name": "ironman",
+    !   "alpha.eksctl.io/nodegroup-name": "demo-ng",
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/instance-type": "m5.large",
+        "beta.kubernetes.io/os": "linux",
+    -   "eks.amazonaws.com/capacityType": "ON_DEMAND",
+    -   "eks.amazonaws.com/nodegroup": "demo-ng",
+    -   "eks.amazonaws.com/nodegroup-image": "ami-05fb5fbb50e08e8be",
+    -   "eks.amazonaws.com/sourceLaunchTemplateId": "lt-00a8d7d3a81de1368",
+    -   "eks.amazonaws.com/sourceLaunchTemplateVersion": "1",
+        "failure-domain.beta.kubernetes.io/region": "eu-west-1",
+    !   "failure-domain.beta.kubernetes.io/zone": "eu-west-1a",
+        "k8s.io/cloud-provider-aws": "65a3fe7010d444e2b6d9d72e9d1f7e67",
+        "kubernetes.io/arch": "amd64",
+    !   "kubernetes.io/hostname": "ip-192-168-82-7.eu-west-1.compute.internal",
+        "kubernetes.io/os": "linux",
+        "node.kubernetes.io/instance-type": "m5.large",
+        "topology.kubernetes.io/region": "eu-west-1",
+    !   "topology.kubernetes.io/zone": "eu-west-1a"
+      }
+    --- 1,18 ----
+      {
+        "alpha.eksctl.io/cluster-name": "ironman",
+    !   "alpha.eksctl.io/instance-id": "i-02bc2f45829b9111f",
+    !   "alpha.eksctl.io/nodegroup-name": "demo-self-ng",
+        "beta.kubernetes.io/arch": "amd64",
+        "beta.kubernetes.io/instance-type": "m5.large",
+        "beta.kubernetes.io/os": "linux",
+        "failure-domain.beta.kubernetes.io/region": "eu-west-1",
+    !   "failure-domain.beta.kubernetes.io/zone": "eu-west-1c",
+        "k8s.io/cloud-provider-aws": "65a3fe7010d444e2b6d9d72e9d1f7e67",
+        "kubernetes.io/arch": "amd64",
+    !   "kubernetes.io/hostname": "ip-192-168-18-58.eu-west-1.compute.internal",
+        "kubernetes.io/os": "linux",
+    +   "node-lifecycle": "on-demand",
+        "node.kubernetes.io/instance-type": "m5.large",
+        "topology.kubernetes.io/region": "eu-west-1",
+    !   "topology.kubernetes.io/zone": "eu-west-1c"
+      }
+    ```
 
 ## 建立 Kubernetes Deployment object 並終止其中一 Managed 節點
 
