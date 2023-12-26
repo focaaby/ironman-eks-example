@@ -26,7 +26,7 @@
     amazon-k8s-cni:v1.12.6-eksbuild.2
     ```
 
-3. EKS 安裝 VPC CNI plugin 時，已經預設好 [IRSA（IAM roles for service accounts）](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) [1] 並關聯 IAM policy [AmazonEKS_CNI_Policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.html) [2] 允許 VPC CNI plugin 可以協助管理 AWS ENI 資源。稍後再建立 EKS add-on 時，可以重複利用相同的 IAM role 而無需重新建立一個新的 IAM role。
+3. EKS 安裝 VPC CNI plugin 時，已經預設好 [IRSA（IAM roles for service accounts）](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) [^1] 並關聯 IAM policy [AmazonEKS_CNI_Policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.html) [^2] 允許 VPC CNI plugin 可以協助管理 AWS ENI 資源。稍後再建立 EKS add-on 時，可以重複利用相同的 IAM role 而無需重新建立一個新的 IAM role。
 
     查看 Service Account `aws-node` 所使用關聯的 IRSA 使用的 IAM role arn。
 
@@ -66,5 +66,5 @@
 
 ## 參考文件
 
-1. IAM roles for service accounts - <https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html>
-2. AmazonEKS_CNI_Policy - <https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.html>
+[^1]: [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
+[^2]: [AmazonEKS_CNI_Policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.html)

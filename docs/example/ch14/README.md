@@ -1,6 +1,6 @@
 # 建置環境
 
-1. 透過官方 [Container Insights on Amazon EKS and Kubernetes 文件](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html#Container-Insights-setup-EKS-quickstart-Fluentd) [1] 所提供的 Quick Start template 部署 CloudWatch agent 及 Fluentd。
+1. 透過官方 [Container Insights on Amazon EKS and Kubernetes 文件](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html#Container-Insights-setup-EKS-quickstart-Fluentd) [^1] 所提供的 Quick Start template 部署 CloudWatch agent 及 Fluentd。
 
     ```bash
     $ curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/ironman/;s/{{region_name}}/eu-west-1/" | kubectl apply -f -
@@ -21,9 +21,9 @@
     daemonset.apps/fluentd-cloudwatch created
     ```
 
-其原始碼 template 也可於 [GitHub - CloudWatch Agent for Container Insights Kubernetes Monitoring](https://github.com/aws-samples/amazon-cloudwatch-container-insights/tree/main/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring) [2] 查看。
+其原始碼 template 也可於 [GitHub - CloudWatch Agent for Container Insights Kubernetes Monitoring](https://github.com/aws-samples/amazon-cloudwatch-container-insights/tree/main/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring) [^2] 查看。
 
-2. 由於 CloudWatch agent 及 Fluentd 皆需要具有 CloudWatch Logs 或 Metrics IAM 權限，因此以下範例透過關聯 `CloudWatchAgentAdminPolicy` 方式設定 [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) [3]。透過 `eksctl` 命令建立 IAM role 給與 ServiceAccount `fluentd` 及 `cloudwatch-agent`  使用。
+2. 由於 CloudWatch agent 及 Fluentd 皆需要具有 CloudWatch Logs 或 Metrics IAM 權限，因此以下範例透過關聯 `CloudWatchAgentAdminPolicy` 方式設定 [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) [^3]。透過 `eksctl` 命令建立 IAM role 給與 ServiceAccount `fluentd` 及 `cloudwatch-agent`  使用。
 
     ```bash
     $ eksctl create iamserviceaccount \
@@ -279,7 +279,7 @@
 
 ## 參考文件
 
-1. Quick Start setup for Container Insights on Amazon EKS and Kubernetes - Quick Start with the CloudWatch agent and Fluentd - <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html#Container-Insights-setup-EKS-quickstart-Fluentd>
-2. CloudWatch Agent for Container Insights Kubernetes Monitoring - <https://github.com/aws-samples/amazon-cloudwatch-container-insights/tree/master/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring>
-3. IAM roles for service accounts - <https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html>
-4. Verify prerequisites - <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-prerequisites.html>
+[^1]: [Quick Start setup for Container Insights on Amazon EKS and Kubernetes - Quick Start with the CloudWatch agent and Fluentd](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html#Container-Insights-setup-EKS-quickstart-Fluentd)
+[^2]: [CloudWatch Agent for Container Insights Kubernetes Monitoring](https://github.com/aws-samples/amazon-cloudwatch-container-insights/tree/master/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring)
+[^3]: [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
+[^4]: [Verify prerequisites](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-prerequisites.html)

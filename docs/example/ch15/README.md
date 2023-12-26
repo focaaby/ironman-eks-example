@@ -1,6 +1,6 @@
 # 建置環境
 
-1. 在此使用 Docker Hub [networkstatic/iperf3](https://hub.docker.com/r/networkstatic/iperf3) [1] 預先安裝好 [`iperf3`](https://iperf.fr/iperf-download.php) [2] 命令的 image。 以下建置 iperf server-side：
+1. 在此使用 Docker Hub [networkstatic/iperf3](https://hub.docker.com/r/networkstatic/iperf3) [^1] 預先安裝好 [`iperf3`](https://iperf.fr/iperf-download.php) [^2] 命令的 image。 以下建置 iperf server-side：
 
     ```bash
     $ cat ./iperf3-demo.yaml
@@ -125,5 +125,5 @@ pod/iperf3-server created
 
 ## 參考文件
 
-1. networkstatic/iperf3 | Docker Hub - <https://hub.docker.com/r/networkstatic/iperf3>
-2. iPerf - The ultimate speed test tool for TCP, UDP and SCTP - <https://iperf.fr/iperf-download.php>
+[^1] [networkstatic/iperf3 | Docker Hub](https://hub.docker.com/r/networkstatic/iperf3)
+[^2] [iPerf - The ultimate speed test tool for TCP, UDP and SCTP](https://iperf.fr/iperf-download.php)

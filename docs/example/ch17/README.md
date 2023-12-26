@@ -8,7 +8,7 @@
     amazon-k8s-cni:v1.12.6-eksbuild.2
     ```
 
-2. 查看叢集所使用的 [EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) [1]。
+2. 查看叢集所使用的 [EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) [^1]。
 
     ```bash
     $ aws eks describe-cluster --name ironman --query cluster.roleArn --output text
@@ -308,4 +308,4 @@ $ aws ec2 describe-network-interfaces --network-interface-ids eni-03e61f90252a66
 
 ## 參考文件
 
-1. Amazon EKS cluster IAM role - <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html>
+[^1]: [Amazon EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html)
