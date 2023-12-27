@@ -88,8 +88,12 @@ const config = {
             title: 'Docs',
             items: [
               {
+                label: '2022 鐵人賽系列文',
+                to: '/days/01',
+              },
+              {
                 label: '建立環境步驟及記錄檔',
-                to: '/docs/example',
+                to: '/example/ch02',
               },
             ],
           },
@@ -98,7 +102,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: 'https://focaaby.com/',
+                href: 'https://focaaby.com/',
               },
               {
                 label: 'GitHub',
