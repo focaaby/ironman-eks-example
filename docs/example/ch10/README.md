@@ -1,4 +1,6 @@
-# 建置 IRSA 環境
+# Ch10 建置 IRSA 環境
+
+## 步驟
 
 1. 於本地建立以下 IAM policy 並儲存為 `s3-example-iam-policy.json` 檔案。
 

@@ -1,4 +1,6 @@
-# 建置環境
+# Ch15 建立 iperf 測試環境
+
+## 步驟
 
 1. 在此使用 Docker Hub [networkstatic/iperf3](https://hub.docker.com/r/networkstatic/iperf3) [^1] 預先安裝好 [`iperf3`](https://iperf.fr/iperf-download.php) [^2] 命令的 image。 以下建置 iperf server-side：
 
@@ -46,12 +48,12 @@
 
 2. 使用 `networkstatic/iperf3` image 部署 server-side 及 client-side。
 
-```
-$ kubectl apply -f ./iperf3-demo.yaml
-namespace/iperf3 created
-pod/iperf3-client created
-pod/iperf3-server created
-```
+    ```bash
+    $ kubectl apply -f ./iperf3-demo.yaml
+    namespace/iperf3 created
+    pod/iperf3-client created
+    pod/iperf3-server created
+    ```
 
 3. 檢視 pod 啟用於相同的節點上，instance id：`i-0ea90c13bca800dc5`。
 
@@ -123,7 +125,5 @@ pod/iperf3-server created
     -----------------------------------------------------------
     ```
 
-## 參考文件
-
-[^1] [networkstatic/iperf3 | Docker Hub](https://hub.docker.com/r/networkstatic/iperf3)
-[^2] [iPerf - The ultimate speed test tool for TCP, UDP and SCTP](https://iperf.fr/iperf-download.php)
+[^1]: [networkstatic/iperf3 | Docker Hub](https://hub.docker.com/r/networkstatic/iperf3)
+[^2]: [iPerf - The ultimate speed test tool for TCP, UDP and SCTP](https://iperf.fr/iperf-download.php)

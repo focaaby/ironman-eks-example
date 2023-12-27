@@ -1,4 +1,4 @@
-# 實驗
+# Ch11 建立環境
 
 ## （一）建立 Managed node groups 及 Self-managed node groups
 

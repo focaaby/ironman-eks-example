@@ -1,4 +1,6 @@
-# 建置環境
+# Ch17 建立 SGFP 環境
+
+## 步驟
 
 1. 檢視 VPC CNI plugin 版本。當前測試版本為 `v1.12.6`。
 
@@ -305,7 +307,5 @@ $ aws ec2 describe-network-interfaces --network-interface-ids eni-03e61f90252a66
     ]
 }
 ```
-
-## 參考文件
 
 [^1]: [Amazon EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html)

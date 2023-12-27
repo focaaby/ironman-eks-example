@@ -1,4 +1,8 @@
-# 更新 VPC CNI plugin 為 EKS add-on 管理
+# Ch9 建立環境
+
+更新 VPC CNI plugin 為 EKS add-on 管理
+
+## 步驟
 
 1. 使用 `aws eks describe-addon-versions` 命令來檢視 EKS 當前 Kubernetes 版本及 Amazon VPC CNI plugin add-on 的相容性及預設版本：
 

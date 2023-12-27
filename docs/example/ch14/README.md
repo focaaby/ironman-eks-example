@@ -1,4 +1,6 @@
-# 建置環境
+# Ch14 建立 Container Insights 環境
+
+## 步驟
 
 1. 透過官方 [Container Insights on Amazon EKS and Kubernetes 文件](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html#Container-Insights-setup-EKS-quickstart-Fluentd) [^1] 所提供的 Quick Start template 部署 CloudWatch agent 及 Fluentd。
 
@@ -276,8 +278,6 @@
     "node_filesystem_utilization": 4.117897547280931
 }
 ```
-
-## 參考文件
 
 [^1]: [Quick Start setup for Container Insights on Amazon EKS and Kubernetes - Quick Start with the CloudWatch agent and Fluentd](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html#Container-Insights-setup-EKS-quickstart-Fluentd)
 [^2]: [CloudWatch Agent for Container Insights Kubernetes Monitoring](https://github.com/aws-samples/amazon-cloudwatch-container-insights/tree/master/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring)

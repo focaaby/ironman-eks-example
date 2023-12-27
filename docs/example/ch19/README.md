@@ -1,4 +1,6 @@
-# 建置環境
+# Ch19 建立環境
+
+## 步驟
 
 1. 建立以下 `nginx-nlb-service-demo.yaml` YAML。使用 Nginx 作為 server-side 應用程式。
 
