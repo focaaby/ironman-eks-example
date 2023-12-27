@@ -71,7 +71,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: '建立環境步驟及記錄檔',
+            label: '文章及範例',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
