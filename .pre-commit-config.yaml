@@ -1,0 +1,13 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.5.0
+  hooks:
+  - id: check-merge-conflict
+  - id: check-yaml
+  - id: detect-aws-credentials
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.38.0
+  hooks:
+  - id: markdownlint
