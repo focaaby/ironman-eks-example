@@ -82,17 +82,27 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'days',
             position: 'left',
-            label: '文章及範例',
+            label: '鐵人賽系列文章',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'docSidebar',
+            sidebarId: 'example',
+            position: 'left',
+            label: '實驗範例',
+          },
           {
             href: 'https://github.com/focaaby/ironman-eks-example',
             label: 'GitHub',
             position: 'right',
           },
         ],
+      },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: false,
+        },
       },
       footer: {
         style: 'dark',
