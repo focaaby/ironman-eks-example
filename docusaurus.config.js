@@ -67,11 +67,11 @@ const config = {
         {property: 'og:url', content: 'https://eksbook.com/'},
         {property: 'og:title', content: '那些文件沒有告訴你的 AWS EKS - 解析 Kubernetes 背後的奧秘 | 王茂林'},
         {property: 'og:description', content: '《那些文件沒告訴你的AWS EKS》源自iThome鐵人賽14屆DevOps組優選，從建立EKS起深入AWS引用原生Kubernetes功能的原理，並涵蓋Linux及網路知識。每章提供逐步除錯驗證，實作中學習除錯概念。本書為深入理解AWS EKS提供實踐指南，揭示文件未涵蓋的重要內容。'},
-        {property: 'og:image', content: 'https://metatags.io/images/meta-tags.png'},
+        // {property: 'og:image', content: 'https://metatags.io/images/meta-tags.png'},
         {name: 'twitter:url', content: 'https://eksbook.com/'},
         {name: 'twitter:title', content: '那些文件沒有告訴你的 AWS EKS - 解析 Kubernetes 背後的奧秘 | 王茂林'},
         {name: 'twitter:description', content: '《那些文件沒告訴你的AWS EKS》源自iThome鐵人賽14屆DevOps組優選，從建立EKS起深入AWS引用原生Kubernetes功能的原理，並涵蓋Linux及網路知識。每章提供逐步除錯驗證，實作中學習除錯概念。本書為深入理解AWS EKS提供實踐指南，揭示文件未涵蓋的重要內容。'},
-        {name: 'twitter:image', content: 'https://metatags.io/images/meta-tags.png'},
+        // {name: 'twitter:image', content: 'https://metatags.io/images/meta-tags.png'},
       ],
       navbar: {
         title: '那些文件沒有告訴你的 AWS EKS',
