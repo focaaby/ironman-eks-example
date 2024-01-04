@@ -60,6 +60,10 @@ const config = {
     ({
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
+      metadata: [
+        {name: 'keywords', content: 'eks, aws, kubernetes, k8s, ironman, 2022'},
+        {name: 'description', content: '那些文件沒有告訴你的 AWS EKS - 解析 Kubernetes 背後的奧秘'},
+      ],
       navbar: {
         title: '那些文件沒有告訴你的 AWS EKS',
         // logo: {
