@@ -13,7 +13,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+          那些文件沒有告訴你的 AWS EKS
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
       </div>
@@ -24,8 +24,7 @@ function HomepageHeader() {
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`${siteConfig.title}`}>
+    <Layout>
       <HomepageHeader />
       <main>
         {/* <HomepageFeatures /> */}
