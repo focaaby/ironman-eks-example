@@ -45,8 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // showReadingTime: true,
-          editUrl:
-            'https://github.com/focaaby/ironman-eks-example/tree/main/',
+          editUrl: 'https://github.com/focaaby/ironman-eks-example/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -91,8 +90,8 @@ const config = {
             label: '鐵人賽系列文章',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'example',
+            type: 'doc',
+            docId: 'example/index',
             position: 'left',
             label: '實驗範例',
           },
