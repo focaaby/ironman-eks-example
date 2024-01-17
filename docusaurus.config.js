@@ -137,7 +137,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Mao-Lin Wang, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">BY-SA 4.0.</a>. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

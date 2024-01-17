@@ -5,9 +5,10 @@
 
 .heroBanner {
   padding: 4rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  --ifm-hero-background-color: var(--ifm-font-color-base-inverse);
+  --ifm-hero-text-color: var(--ifm-color-primary);
 }
 
 @media screen and (max-width: 996px) {
@@ -17,7 +18,15 @@
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex;
+  margin: .25rem .125rem;
+}
+
+.fontBlack {
+  color: #16191f;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  color: #16191f;
 }
