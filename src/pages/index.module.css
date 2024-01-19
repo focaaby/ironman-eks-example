@@ -23,10 +23,10 @@
 }
 
 .fontBlack {
-  color: #16191f;
+  color: var(--ifm-font-color-base);
 }
 
 .heroTitle {
   font-size: 3rem;
-  color: #16191f;
+  color: var(--ifm-font-color-base);
 }
