@@ -1,5 +1,7 @@
 # iThome 鐵人講堂
 
+## 部署測試 eks pod identity
+
 1. 建立 cluster。
 
   ```
@@ -112,7 +114,7 @@
 ## 驗證
 
 1. 檢視 Pod 資訊。
-2.
+
   ```
   $ kubectl describe po aws-cli
   ...
@@ -142,7 +144,7 @@
         /var/run/secrets/pods.eks.amazonaws.com/serviceaccount from eks-pod-identity-token
   ```
 
-1. 看一下 eks-pod-identity-token / env variable `AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE` 是什麼，格式為 jwt base64 encode 格式。
+2. 看一下 eks-pod-identity-token / env variable `AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE` 是什麼，格式為 jwt base64 encode 格式。
 
   ```
   $ kubectl exec -it aws-cli -- cat /var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token; echo
