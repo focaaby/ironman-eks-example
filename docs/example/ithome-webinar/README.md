@@ -53,7 +53,7 @@
       "Policy": {
           "PolicyName": "demo-describe-ec2",
           "PolicyId": "ANPAUU2VK5QEAM7SX6T2P",
-          "Arn": "arn:aws:iam::319617166344:policy/demo-describe-ec2",
+          "Arn": "arn:aws:iam::111111111111:policy/demo-describe-ec2",
           "Path": "/",
           "DefaultVersionId": "v1",
           "AttachmentCount": 0,
@@ -72,7 +72,7 @@
   --cluster demo \
   --namespace default \
   --service-account-name ec2-describer \
-  --permission-policy-arns="arn:aws:iam::319617166344:policy/demo-describe-ec2"
+  --permission-policy-arns="arn:aws:iam::111111111111:policy/demo-describe-ec2"
   2024-05-24 11:24:13 [ℹ]  1 task: {
       3 sequential sub-tasks: {
           create IAM role for pod identity association for service account "default/ec2-describer",
@@ -106,8 +106,8 @@
   $ kubectl exec -it aws-cli -- aws sts get-caller-identity
   {
       "UserId": "AROAUU2VK5QEPJCRS7HTA:eks-demo-aws-cli-b307fd36-d25c-49f1-b9ce-bf4629564f3c",
-      "Account": "319617166344",
-      "Arn": "arn:aws:sts::319617166344:assumed-role/eksctl-demo-podidentityrole-default-ec2-descr-Role1-9YWIdz5W09wm/eks-demo-aws-cli-b307fd36-d25c-49f1-b9ce-bf4629564f3c"
+      "Account": "111111111111",
+      "Arn": "arn:aws:sts::111111111111:assumed-role/eksctl-demo-podidentityrole-default-ec2-descr-Role1-9YWIdz5W09wm/eks-demo-aws-cli-b307fd36-d25c-49f1-b9ce-bf4629564f3c"
   }
   ```
 
@@ -213,7 +213,7 @@
     "AccessKeyId": "ASIAUU2VK5QEICHZO56K",
     "SecretAccessKey": "ybEA.....gvxde",
     "Token": "IQoJb3JpZ2luX2VjEBkaDmFwLW5vcnRoZWFzdC0xIkYwRAIgdyi4a7koHgSxVnY1MfCsQ098tP/...+vpxEM6VkLJjiVVZdVLlbrM5wH42J2ejv32yK7hbo5pCsxuKfd0RpADx5c/ANdpYG9KnJgn4Q4=",
-    "AccountId": "319617166344",
+    "AccountId": "111111111111",
     "Expiration": "2024-05-24T23:07:20Z"
   }
 
@@ -225,11 +225,11 @@
       },
       "audience": "pods.eks.amazonaws.com",
       "podIdentityAssociation": {
-          "associationArn": "arn:aws:eks:ap-northeast-1:319617166344:podidentityassociation/demo/a-uplracrzgd8p4uz1u",
+          "associationArn": "arn:aws:eks:ap-northeast-1:111111111111:podidentityassociation/demo/a-uplracrzgd8p4uz1u",
           "associationId": "a-uplracrzgd8p4uz1u"
       },
       "assumedRoleUser": {
-          "arn": "arn:aws:sts::319617166344:assumed-role/eksctl-demo-podidentityrole-default-ec2-descr-Role1-9YWIdz5W09wm/eks-demo-aws-cli-87e3682b-b463-47d7-940e-35c3e22476b2",
+          "arn": "arn:aws:sts::111111111111:assumed-role/eksctl-demo-podidentityrole-default-ec2-descr-Role1-9YWIdz5W09wm/eks-demo-aws-cli-87e3682b-b463-47d7-940e-35c3e22476b2",
           "assumeRoleId": "AROAUU2VK5QEPJCRS7HTA:eks-demo-aws-cli-87e3682b-b463-47d7-940e-35c3e22476b2"
       },
       "credentials": {
