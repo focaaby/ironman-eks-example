@@ -6,7 +6,7 @@
 
   ```
   $ eksctl create cluster --with-oidc \
-    --ssh-access --ssh-public-key=maowang-nics \
+    --ssh-access --ssh-public-key=maowang \
     --nodegroup-name=demo-ng --name=demo
   ```
 
